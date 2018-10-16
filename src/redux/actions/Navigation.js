@@ -3,7 +3,7 @@ import { NavigationActions } from 'react-navigation';
 import { RootNavigator } from '../../navigators/AppNavigator';
 import * as Types from '../types/Navigation';
 
-const firstAction = RootNavigator.router.getActionForPathAndParams('Home');
+const firstAction = RootNavigator.router.getActionForPathAndParams('Login');
 const tempNavState = RootNavigator.router.getStateForAction(firstAction);
 const initialNavState = RootNavigator.router.getStateForAction(tempNavState);
 

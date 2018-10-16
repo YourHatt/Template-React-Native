@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
+    Text
 } from 'react-native';
 
 import {
@@ -22,6 +23,7 @@ class Home extends Component {
         const { navigation } = this.props;
         return (
             <View>
+                <Text>x</Text>
             </View>
         )
     }

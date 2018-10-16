@@ -5,12 +5,14 @@ import { reduxifyNavigator, createReactNavigationReduxMiddleware } from 'react-n
 
 import {
     Home,
+    Login
 } from '../views';
 
 const middleware = createReactNavigationReduxMiddleware('root', state => state.nav);
 
 const RootNavigator = createStackNavigator({
     // Home View
+    Login: { screen: Login },
     Home: { screen: Home },
 });
 
