@@ -3,13 +3,15 @@ import { combineReducers } from 'redux';
 import {
     nav,
     home,
-    login
+    login,
+    signUp
 } from '../actions';
 
 const AppReducer = combineReducers({
     nav,
     home,
-    login
+    login,
+    signUp
 });
 
 export default AppReducer;

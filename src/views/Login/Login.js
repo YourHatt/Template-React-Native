@@ -15,7 +15,6 @@ import {
     TouchableWithoutFeedback
 } from 'react-native';
 import { Button, Icon } from 'native-base'
-import Spinner from 'react-native-loading-spinner-overlay';
 
 import {
 

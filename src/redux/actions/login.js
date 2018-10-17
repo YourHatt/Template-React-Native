@@ -167,18 +167,13 @@ export function replace(routeName) {
 }
 export const onClickSignUp = () => {
     return async dispatch => {
-        await dispatch(replace('Home'));
+        await dispatch(replace('SignUp'));
     }
 }
 export function onAuthen() {
     return async (dispatch, getState) => {
-
         const { login: { email, password } } = getState();
-        // if (email == 'grgr@gmail.com' && password == '111111') {
-        //     await dispatch({ type: Types.AUTH_LOAD_SUCCESS });
-        //     ToastAndroid.show('เข้าสู่ระบบสำเร็จ', ToastAndroid.SHORT);
         await dispatch(replace('Home'))
-        // }
     }
 }
 
