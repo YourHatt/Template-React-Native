@@ -16,6 +16,30 @@ const nav = (state = initialNavState, action) => {
                 state
             );
             break;
+        case Types.INVENTORY_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'Inventory' }),
+                state
+            )
+            break;
+        case Types.SALERECEIVING_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'SaleReceiving' }),
+                state
+            )
+            break;
+        case Types.RECORD_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'RecordExpense' }),
+                state
+            )
+            break;
+        case Types.TIME_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'TimeManagement' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;

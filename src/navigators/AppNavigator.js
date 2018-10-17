@@ -6,7 +6,11 @@ import { reduxifyNavigator, createReactNavigationReduxMiddleware } from 'react-n
 import {
     Home,
     Login,
-    SignUp
+    SignUp,
+    Inventory,
+    SaleReceiving,
+    RecordExpense,
+    TimeManagement,
 } from '../views';
 
 const middleware = createReactNavigationReduxMiddleware('root', state => state.nav);
@@ -16,6 +20,10 @@ const RootNavigator = createStackNavigator({
     Login: { screen: Login },
     Home: { screen: Home },
     SignUp: { screen: SignUp },
+    Inventory: { screen: Inventory },
+    SaleReceiving: { screen: SaleReceiving },
+    RecordExpense: { screen: RecordExpense },
+    TimeManagement: { screen: TimeManagement },
 });
 
 const AppWithNavigationState = reduxifyNavigator(RootNavigator, 'root');

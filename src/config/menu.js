@@ -10,7 +10,7 @@ export default menu = {
         {
             icon: 'cart',
             label: 'Sales & Receiving',
-            link: 'SALE_SCREEN',
+            link: 'SALERECEIVING_SCREEN',
             view: '',
             permission: ''
         },
