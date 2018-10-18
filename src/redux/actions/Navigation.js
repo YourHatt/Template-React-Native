@@ -46,6 +46,12 @@ const nav = (state = initialNavState, action) => {
                 state
             )
             break;
+        case Types.SHARING_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'Sharing' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;
