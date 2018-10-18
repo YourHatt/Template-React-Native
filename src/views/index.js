@@ -5,3 +5,4 @@ export { default as Inventory } from './Inventory/Inventory';
 export { default as SaleReceiving } from './SaleReceiving/SaleReceiving';
 export { default as RecordExpense } from './RecordExpense/RecordExpense';
 export { default as TimeManagement } from './TimeManagement/TimeManagement';
+export { default as WeightManagement } from './WeightManagement/WeightManagement';

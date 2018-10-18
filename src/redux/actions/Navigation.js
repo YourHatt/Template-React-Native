@@ -40,6 +40,12 @@ const nav = (state = initialNavState, action) => {
                 state
             )
             break;
+        case Types.WEIGHT_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'WeightManagement' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;

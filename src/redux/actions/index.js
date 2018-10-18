@@ -6,3 +6,4 @@ export { default as inventory } from './inventory';
 export { default as saleReceiving } from './saleReceiving';
 export { default as recordExpense } from './recordExpense';
 export { default as timeManagement } from './timeManagement';
+export { default as weightManagement } from './weightManagement';
