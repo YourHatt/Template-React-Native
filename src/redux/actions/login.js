@@ -1,5 +1,9 @@
 import * as Types from '../types/Login';
 import { NavigationActions, StackActions } from 'react-navigation';
+import {
+    ToastAndroid,
+    AsyncStorage
+} from 'react-native';
 
 const initialState = {
     email: 'grgr@gmail.com',
@@ -173,7 +177,7 @@ export const onClickSignUp = () => {
 export const onSignOut = () => {
     return async dispatch => {
         await AsyncStorage.clear();
-        await dispatch({ type: AUTH_LOG_OUT });
+        await dispatch({ type: Types.AUTH_LOG_OUT });
         await dispatch(replace('Login'));
         ToastAndroid.show('ลงชื่อออกจากระบบสำเร็จ', ToastAndroid.SHORT);
     }
