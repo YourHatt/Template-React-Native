@@ -13,7 +13,9 @@ import {
     TimeManagement,
     WeightManagement,
     Sharing,
-    Report
+    Report,
+    Plantation,
+    MasterData
 } from '../views';
 
 const middleware = createReactNavigationReduxMiddleware('root', state => state.nav);
@@ -30,6 +32,8 @@ const RootNavigator = createStackNavigator({
     WeightManagement: { screen: WeightManagement },
     Sharing: { screen: Sharing },
     Report: { screen: Report },
+    Plantation: { screen: Plantation },
+    MasterData: { screen: MasterData },
 });
 
 const AppWithNavigationState = reduxifyNavigator(RootNavigator, 'root');

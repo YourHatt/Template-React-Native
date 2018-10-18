@@ -9,3 +9,5 @@ export { default as timeManagement } from './timeManagement';
 export { default as weightManagement } from './weightManagement';
 export { default as sharing } from './sharing';
 export { default as report } from './report';
+export { default as plantation } from './plantation';
+export { default as masterData } from './masterData';

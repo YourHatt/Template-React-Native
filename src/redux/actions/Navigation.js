@@ -58,6 +58,18 @@ const nav = (state = initialNavState, action) => {
                 state
             )
             break;
+        case Types.PLAN_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'Plantation' }),
+                state
+            )
+            break;
+        case Types.MASTER_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'MasterData' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;
