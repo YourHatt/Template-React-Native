@@ -7,3 +7,4 @@ export { default as RecordExpense } from './RecordExpense/RecordExpense';
 export { default as TimeManagement } from './TimeManagement/TimeManagement';
 export { default as WeightManagement } from './WeightManagement/WeightManagement';
 export { default as Sharing } from './Sharing/Sharing';
+export { default as Report } from './Report/Report';

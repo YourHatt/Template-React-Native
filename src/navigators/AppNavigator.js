@@ -12,7 +12,8 @@ import {
     RecordExpense,
     TimeManagement,
     WeightManagement,
-    Sharing
+    Sharing,
+    Report
 } from '../views';
 
 const middleware = createReactNavigationReduxMiddleware('root', state => state.nav);
@@ -28,6 +29,7 @@ const RootNavigator = createStackNavigator({
     TimeManagement: { screen: TimeManagement },
     WeightManagement: { screen: WeightManagement },
     Sharing: { screen: Sharing },
+    Report: { screen: Report },
 });
 
 const AppWithNavigationState = reduxifyNavigator(RootNavigator, 'root');

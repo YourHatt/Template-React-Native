@@ -52,6 +52,12 @@ const nav = (state = initialNavState, action) => {
                 state
             )
             break;
+        case Types.REPORT_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'Report' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;

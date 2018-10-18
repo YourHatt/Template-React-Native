@@ -8,3 +8,4 @@ export { default as recordExpense } from './recordExpense';
 export { default as timeManagement } from './timeManagement';
 export { default as weightManagement } from './weightManagement';
 export { default as sharing } from './sharing';
+export { default as report } from './report';

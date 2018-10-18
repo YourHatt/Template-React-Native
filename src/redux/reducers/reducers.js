@@ -7,7 +7,11 @@ import {
     signUp,
     inventory,
     saleReceiving,
-    recordExpense
+    recordExpense,
+    weightManagement,
+    timeManagement,
+    sharing,
+    report,
 } from '../actions';
 
 const AppReducer = combineReducers({
@@ -17,7 +21,12 @@ const AppReducer = combineReducers({
     signUp,
     inventory,
     saleReceiving,
-    recordExpense
+    recordExpense,
+    weightManagement,
+    timeManagement,
+    sharing,
+    report,
+
 });
 
 export default AppReducer;
