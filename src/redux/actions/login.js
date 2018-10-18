@@ -170,6 +170,14 @@ export const onClickSignUp = () => {
         await dispatch(replace('SignUp'));
     }
 }
+export const onSignOut = () => {
+    return async dispatch => {
+        await AsyncStorage.clear();
+        await dispatch({ type: AUTH_LOG_OUT });
+        await dispatch(replace('Login'));
+        ToastAndroid.show('ลงชื่อออกจากระบบสำเร็จ', ToastAndroid.SHORT);
+    }
+}
 export function onAuthen() {
     return async (dispatch, getState) => {
         const { login: { email, password } } = getState();

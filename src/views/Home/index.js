@@ -26,7 +26,7 @@ import {
 } from 'native-base';
 
 import {
-
+ SignOut
 } from '../../components';
 
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -83,7 +83,9 @@ Home.navigationOptions = () => ({
     headerTintColor: 'black',
     headerStyle: {
         backgroundColor: 'white'
-    }
+    },
+    headerRight: <SignOut />
+
 });
 const styles = StyleSheet.create({
     container: {
