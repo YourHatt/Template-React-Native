@@ -1,4 +1,4 @@
-import * as Types from '../types/Report';
+import * as Types from '../types/Plantation';
 
 const initialState = {
     data: [],

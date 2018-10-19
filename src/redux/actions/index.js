@@ -11,3 +11,4 @@ export { default as sharing } from './sharing';
 export { default as report } from './report';
 export { default as plantation } from './plantation';
 export { default as masterData } from './masterData';
+export { default as product } from './product';

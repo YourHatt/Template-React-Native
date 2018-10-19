@@ -11,3 +11,4 @@ export const SHARING_SCREEN = 'SHARING_SCREEN';
 export const REPORT_SCREEN = 'REPORT_SCREEN';
 export const MASTER_SCREEN = 'MASTER_SCREEN';
 export const PLAN_SCREEN = 'PLAN_SCREEN';
+export const PRODUCT_SCREEN = 'PRODUCT_SCREEN';

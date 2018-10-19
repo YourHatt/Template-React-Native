@@ -70,6 +70,12 @@ const nav = (state = initialNavState, action) => {
                 state
             )
             break;
+        case Types.PRODUCT_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'Product' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;

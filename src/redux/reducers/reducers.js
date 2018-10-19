@@ -13,7 +13,8 @@ import {
     sharing,
     report,
     plantation,
-    masterData
+    masterData,
+    product
 } from '../actions';
 
 const AppReducer = combineReducers({
@@ -29,7 +30,8 @@ const AppReducer = combineReducers({
     sharing,
     report,
     plantation,
-    masterData
+    masterData,
+    product
 
 });
 
