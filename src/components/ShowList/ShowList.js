@@ -36,16 +36,16 @@ export default class ShowList extends Component {
     };
 
     renderListItems = () => {
-        const { menu, backpress, navi, list, listTitle } = this.props
+        const { menu, backpress, navigation, list, listTitle } = this.props
         if (list) return list.map((e, i) => {
-            return <ListItem numberOfLines={2} icon key={i} style={{ marginTop: 20 }} button onPress={() => navi.dispatch({ type: 'FORM_SCREEN', data: e, formType: listTitle })}>
-                {/* onPress={() => this.RenderModal(true, listTitle, e, true)} > */}
+            return <ListItem numberOfLines={2} icon key={i} style={{ marginTop: 20 }} button onPress={() => navigation.dispatch({ type: 'FORM_SCREEN', data: e, formType: listTitle })}>
                 <Left>
                     <Thumbnail square source={require('../../../assets/icon.png')} />
                 </Left>
                 <Body>
                     <Text>{e.title ? e.title : e.name ? e.name : e.label}</Text>
                     {/* <Text note numberOfLines={1}>{e.status ? e.status : e.address ? e.address : e.description}</Text> */}
+                    <Text note numberOfLines={1}>{listTitle}</Text>
                 </Body>
             </ListItem>
         })

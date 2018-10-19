@@ -12,3 +12,4 @@ export const REPORT_SCREEN = 'REPORT_SCREEN';
 export const MASTER_SCREEN = 'MASTER_SCREEN';
 export const PLAN_SCREEN = 'PLAN_SCREEN';
 export const PRODUCT_SCREEN = 'PRODUCT_SCREEN';
+export const FORM_SCREEN = 'FORM_SCREEN';

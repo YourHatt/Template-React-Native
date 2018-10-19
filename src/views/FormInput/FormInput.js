@@ -2,30 +2,26 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { Component, Fragment } from 'react';
-import * as authUserActions from '../../redux/actions/login';
-import SignOut from '../../components/SingOut/SignOut'
+import * as formInputAction from '../../redux/actions/formInput';
+
 import {
     ScrollView,
     StyleSheet,
     Dimensions,
-    TouchableOpacity
+    TouchableOpacity,
+    View,
 } from 'react-native';
 
 import menu from '../../config/menu'
 
 import {
-    List,
-    ListItem,
-    Button,
-    Icon,
-    Left,
-    Right,
-    Body,
-    Text
+    Text,
 } from 'native-base';
 
 import {
+    SignOut,
     FormMenu
+
 } from '../../components';
 
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -46,6 +42,7 @@ class FormInput extends Component {
             <Fragment>
                 <ScrollView style={styles.container}>
                     <FormMenu formType={formType} itemData={data} isEdit navigation={navigation} />
+                    {/* <Text>{formType}</Text> */}
                 </ScrollView>
             </Fragment>
         )
@@ -53,10 +50,10 @@ class FormInput extends Component {
 }
 
 FormInput.navigationOptions = () => ({
-    title: 'FormInput',
-    headerTintColor: 'white',
+    title: 'Form Input',
+    headerTintColor: 'black',
     headerStyle: {
-        backgroundColor: '#2962ff'
+        backgroundColor: '#ffffff'
     },
     headerRight: <SignOut />
 });
@@ -74,16 +71,14 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    user: state.login.user,
-    isLoading: state.login.isLoading,
-    // data: state.formInput.data,
-    // formType: state.formInput.formType
+    formType: state.formInput.formType,
+    data: state.formInput.data
 });
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
-            ...loginActions
+            ...formInputAction,
         }, dispatch
     )
 }

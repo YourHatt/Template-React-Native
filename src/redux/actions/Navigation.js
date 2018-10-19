@@ -76,6 +76,12 @@ const nav = (state = initialNavState, action) => {
                 state
             )
             break;
+        case Types.FORM_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'FormInput' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;

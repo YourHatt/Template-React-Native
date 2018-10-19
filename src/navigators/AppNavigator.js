@@ -16,7 +16,8 @@ import {
     Report,
     Plantation,
     MasterData,
-    Product
+    Product,
+    FormInput
 } from '../views';
 
 const middleware = createReactNavigationReduxMiddleware('root', state => state.nav);
@@ -36,6 +37,7 @@ const RootNavigator = createStackNavigator({
     Plantation: { screen: Plantation },
     MasterData: { screen: MasterData },
     Product: { screen: Product },
+    FormInput: { screen: FormInput },
 });
 
 const AppWithNavigationState = reduxifyNavigator(RootNavigator, 'root');

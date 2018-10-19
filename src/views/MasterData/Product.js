@@ -50,7 +50,7 @@ class Product extends Component {
         const { getList, products } = this.props;
         getList();
     }
-    
+
     searchFilter = (searchWord, data) => {
         this.setState({ searchInput: searchWord })
     }
@@ -70,8 +70,9 @@ class Product extends Component {
             <Fragment>
                 <ListHeader navigation={navigation} listTitle={listTitle} search={this.searchFilter} data={products} />
                 <ScrollView style={styles.container}>
-                    <ShowList menu={menu.product} backpress={backpress} navi={navigation} list={this.searchList()} listTitle={listTitle} />
+                    <ShowList menu={menu.product} backpress={backpress} navigation={navigation} list={this.searchList()} listTitle={listTitle} />
                 </ScrollView>
+                <View style ={styles.bottomBar} />
             </Fragment>
         )
     }
@@ -93,7 +94,12 @@ const styles = StyleSheet.create({
         flex: 1,
         fontSize: 20,
         color: '#636263'
-    }
+    },
+    bottomBar: {
+        width: '100%',
+        height: 20,
+        backgroundColor: '#c5d2e8',
+    },
 });
 
 const mapStateToProps = state => ({
