@@ -1,31 +1,31 @@
 export default myArray = {
     array_A: [
         {
-            label: 'a123',
+            title: 'a123',
         },
         {
-            label: 'az13212132',
+            title: 'az13212132',
         },
         {
-            label: 'xx23133',
+            title: 'xx23133',
         },
         {
-            label: '9884',
+            title: '9884',
         },
         {
-            label: '1212154',
+            title: '1212154',
         },
         {
-            label: 'cacxxxx',
+            title: 'cacxxxx',
         },
         {
-            label: 'wrqgsdfgnhbmj',
+            title: 'wrqgsdfgnhbmj',
         },
         {
-            label: 'kjmbn',
+            title: 'kjmbn',
         },
         {
-            label: 'ojlnklbjhjkh',
+            title: 'ojlnklbjhjkh',
         }
     ],
 }

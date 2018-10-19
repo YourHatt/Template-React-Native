@@ -58,7 +58,7 @@ class Product extends Component {
     searchList = () => {
         const { searchInput } = this.state;
         const { products } = this.props;
-        if (searchInput && products) return products.filter(e => e.label.match(new RegExp(searchInput, 'gi')));
+        if (searchInput && products) return products.filter(e => e.title.match(new RegExp(searchInput, 'gi')));
         else return products;
     }
 
