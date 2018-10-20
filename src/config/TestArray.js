@@ -73,4 +73,42 @@ export default myArray = {
             vatPrice:'7',
         }
     ],
+    array_member: [
+        {
+            name: 'ab',
+            
+        },
+        {
+            name: 'ac',
+           
+        },
+        {
+            name: 'az',
+           
+        },
+        {
+            name: 'ax',
+           
+        },
+        {
+            name: 'av',
+            
+        },
+        {
+            name: 'aw',
+           
+        },
+        {
+            name: 'ws',
+          
+        },
+        {
+            name: 'fs',
+           
+        },
+        {
+            name: 'rf',
+           
+        }
+    ],
 }

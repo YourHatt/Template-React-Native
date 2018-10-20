@@ -23,7 +23,7 @@ export default class ListHeader extends Component {
             <View style={styles.topBar}>
 
                 <TextInput placeholder='search' style={styles.inputText} underlineColorAndroid='rgba(0,0,0,0)' onChangeText={e => search(e, datas)} />
-                <Button style={{ backgroundColor: '#c5d2e8' }} onPress={() => navigation.dispatch({ type: 'FORM_SCREEN', formType: listTitle })}>
+                <Button style={styles.addButton} onPress={() => navigation.dispatch({ type: 'FORM_SCREEN', formType: listTitle })}>
                     <Icon active type='Ionicons' name='add' />
                 </Button>
             </View >
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         height: 50,
-        backgroundColor: '#c5d2e8',
+        backgroundColor: '#efefef',
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -45,16 +45,25 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     inputText: {
-        width: '60%',
+        width: '90%',
         height: 40,
         borderWidth: 1,
         borderStyle: 'solid',
         fontSize: 15,
-        borderRadius: 25,
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
         backgroundColor: 'white',
         borderColor: 'white',
         textAlign: 'center',
         paddingLeft: 10,
         paddingRight: 10
+    },
+    addButton: {
+        height: 40,
+        marginTop: '1%',
+        backgroundColor: '#2962ff',
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10
     }
+
 });

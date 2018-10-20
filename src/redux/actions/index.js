@@ -13,3 +13,4 @@ export { default as plantation } from './plantation';
 export { default as masterData } from './masterData';
 export { default as product } from './product';
 export { default as formInput } from './formInput';
+export { default as member } from './member';

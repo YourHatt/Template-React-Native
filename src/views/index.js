@@ -12,3 +12,4 @@ export { default as Plantation } from './Plantation/Plantation';
 export { default as MasterData } from './MasterData/MasterData';
 export { default as Product } from './MasterData/Product';
 export { default as FormInput } from './FormInput/FormInput';
+export { default as Member } from './MasterData/Member';

@@ -18,7 +18,7 @@ import {
 } from 'react-native';
 import {
     FormProduct,
-    // FormMember,
+    FormMember,
     // FormLocation,
     // FormUnitOfMeasure,
     // FormExpense
@@ -32,8 +32,8 @@ export default class FormMenu extends Component {
         switch (formType) {
             case 'products':
                 return <FormProduct itemData={itemData} navi={navigation} />
-            // case 'members':
-            //     return <FormMember itemData={itemData} navi={navigation} />
+            case 'members':
+                return <FormMember itemData={itemData} navi={navigation} />
             // case 'locations':
             //     return <FormLocation itemData={itemData} navi={navigation} />
             // case 'unitOfMeasures':

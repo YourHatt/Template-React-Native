@@ -82,6 +82,12 @@ const nav = (state = initialNavState, action) => {
                 state
             )
             break;
+        case Types.MEMBER_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'Member' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;

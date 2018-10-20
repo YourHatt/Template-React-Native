@@ -58,7 +58,7 @@ export default class ShowList extends Component {
                 </View>
                 <View style={{ flex: 0.6 }}>
                     <Content style={{ flex: 1 }}>
-                        <List style={{ marginTop: 10 }}>
+                        <List style={{ marginTop: 10, marginBottom: 10 }}>
                             {this.renderListItems()}
                         </List>
                     </Content>

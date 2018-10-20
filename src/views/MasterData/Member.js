@@ -2,7 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { Component, Fragment } from 'react';
-import * as productAction from '../../redux/actions/product';
+import * as memberAction from '../../redux/actions/member';
 
 import {
     ScrollView,
@@ -36,7 +36,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
-class Product extends Component {
+class Member extends Component {
     state = {
         initialItem: [],
         searchInput: '',
@@ -47,7 +47,7 @@ class Product extends Component {
     }
 
     componentDidMount = async () => {
-        const { getList, products } = this.props;
+        const { getList, members } = this.props;
         getList();
     }
 
@@ -57,20 +57,20 @@ class Product extends Component {
 
     searchList = () => {
         const { searchInput } = this.state;
-        const { products } = this.props;
-        if (searchInput && products) return products.filter(e => e.title.match(new RegExp(searchInput, 'gi')));
-        else return products;
+        const { members } = this.props;
+        if (searchInput && members) return members.filter(e => e.title.match(new RegExp(searchInput, 'gi')));
+        else return members;
     }
 
     render() {
-        const { backpress, replace, isLoading, navigation, products } = this.props;
-        const listTitle = 'products'
+        const { backpress, replace, isLoading, navigation, members } = this.props;
+        const listTitle = 'members'
         if (isLoading) return <Spinner visible={isLoading} textContent={"กำลังโหลด..."} textStyle={{ color: 'white' }} />
         return (
             <Fragment>
-                <ListHeader navigation={navigation} listTitle={listTitle} search={this.searchFilter} data={products} />
+                <ListHeader navigation={navigation} listTitle={listTitle} search={this.searchFilter} data={members} />
                 <ScrollView style={styles.container}>
-                    <ShowList menu={menu.product} backpress={backpress} navigation={navigation} list={this.searchList()} listTitle={listTitle} />
+                    <ShowList menu={menu.member} backpress={backpress} navigation={navigation} list={this.searchList()} listTitle={listTitle} />
                 </ScrollView>
                 <View style ={styles.bottomBar} />
             </Fragment>
@@ -78,8 +78,8 @@ class Product extends Component {
     }
 }
 
-Product.navigationOptions = () => ({
-    title: 'Products',
+Member.navigationOptions = () => ({
+    title: 'Members',
     headerTintColor: 'black',
     headerStyle: {
         backgroundColor: 'white'
@@ -103,16 +103,16 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    isLoading: state.product.isLoading,
-    products: state.product.products,
+    isLoading: state.member.isLoading,
+    members: state.member.members,
 });
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
-            ...productAction,
+            ...memberAction,
         }, dispatch
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default connect(mapStateToProps, mapDispatchToProps)(Member);

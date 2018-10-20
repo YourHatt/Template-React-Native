@@ -15,7 +15,8 @@ import {
     plantation,
     masterData,
     product,
-    formInput
+    formInput,
+    member
 } from '../actions';
 
 const AppReducer = combineReducers({
@@ -33,7 +34,8 @@ const AppReducer = combineReducers({
     plantation,
     masterData,
     product,
-    formInput
+    formInput,
+    member
 
 });
 
