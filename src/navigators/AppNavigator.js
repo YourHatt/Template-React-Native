@@ -19,7 +19,8 @@ import {
     Product,
     FormInput,
     Member,
-    UnitOfMeasure
+    UnitOfMeasure,
+    Location
 } from '../views';
 
 const middleware = createReactNavigationReduxMiddleware('root', state => state.nav);
@@ -42,6 +43,7 @@ const RootNavigator = createStackNavigator({
     FormInput: { screen: FormInput },
     Member: { screen: Member },
     UnitOfMeasure: { screen: UnitOfMeasure },
+    Location: { screen: Location },
 });
 
 const AppWithNavigationState = reduxifyNavigator(RootNavigator, 'root');

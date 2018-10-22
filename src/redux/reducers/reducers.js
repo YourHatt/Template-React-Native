@@ -17,7 +17,8 @@ import {
     product,
     formInput,
     member,
-    unitOfMeasure
+    unitOfMeasure,
+    location
 } from '../actions';
 
 const AppReducer = combineReducers({
@@ -37,7 +38,8 @@ const AppReducer = combineReducers({
     product,
     formInput,
     member,
-    unitOfMeasure
+    unitOfMeasure,
+    location
 
 });
 

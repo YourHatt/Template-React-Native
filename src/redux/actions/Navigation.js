@@ -94,6 +94,12 @@ const nav = (state = initialNavState, action) => {
                 state
             )
             break;
+        case Types.LOCATION_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'Location' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;
