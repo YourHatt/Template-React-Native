@@ -88,6 +88,12 @@ const nav = (state = initialNavState, action) => {
                 state
             )
             break;
+        case Types.UNITOFMEASURE_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'UnitOfMeasure' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;

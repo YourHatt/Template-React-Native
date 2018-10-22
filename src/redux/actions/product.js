@@ -44,6 +44,22 @@ const product = (state = initialState, action) => {
                 isLoading: false,
                 products: action.value
             }
+        case Types.CREATE_LOADING_STARTED:
+            return {
+                ...state,
+                isLoading: false,
+            }
+        case Types.CREATE_LOADING_FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+            }
+        case Types.CREATE_LOADING_SUCCESS:
+            return {
+                ...state,
+                isLoading: true,
+                products: action.value
+            }
         default:
             return state;
     }

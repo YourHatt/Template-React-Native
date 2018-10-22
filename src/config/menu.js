@@ -98,7 +98,7 @@ export default menu = {
         {
             icon: 'wifi',
             label: 'Unit of Measure',
-            link: 'UOM_SCREEN',
+            link: 'UNITOFMEASURE_SCREEN',
             view: '',
             permission: ''
         },

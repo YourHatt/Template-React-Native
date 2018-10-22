@@ -13,3 +13,4 @@ export { default as MasterData } from './MasterData/MasterData';
 export { default as Product } from './MasterData/Product';
 export { default as FormInput } from './FormInput/FormInput';
 export { default as Member } from './MasterData/Member';
+export { default as UnitOfMeasure } from './MasterData/UnitOfMeasure';
