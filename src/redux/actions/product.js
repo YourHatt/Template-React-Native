@@ -29,7 +29,7 @@ const product = (state = initialState, action) => {
                 ...state,
                 isLoading: true
             }
-        case Types.CREATE_LOADING_STARTED:
+        case Types.PRODUCT_CREATE_STARTED:
             return {
                 ...state,
                 isLoading: true,
@@ -50,7 +50,7 @@ const product = (state = initialState, action) => {
                 isLoading: false,
                 summary: action.value
             }
-        case Types.CREATE_LOADING_SUCCESS:
+        case Types.PRODUCT_CREATE_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
@@ -73,7 +73,7 @@ const product = (state = initialState, action) => {
                 ...state,
                 isLoading: false
             }
-        case Types.CREATE_LOADING_FAILURE:
+        case Types.PRODUCT_CREATE_FAILURE:
             return {
                 ...state,
                 isLoading: false
@@ -83,7 +83,7 @@ const product = (state = initialState, action) => {
                 ...state,
                 isLoading: false
             }
-        case Types.INPUT_CHANGE:
+        case Types.PRODUCT_INPUT_CHANGE:
             return {
                 ...state,
                 title: action.title,
@@ -118,16 +118,16 @@ export function onCreateSubmit(data) {
 }
 export function onCreateProduct() {
     return async (dispatch, getState) => {
-        await dispatch({ type: Types.CREATE_LOADING_STARTED });
+        await dispatch({ type: Types.PRODUCT_CREATE_STARTED });
         const { product } = getState();
         if (product) {
-            await dispatch({ type: Types.CREATE_LOADING_SUCCESS, data: product });
+            await dispatch({ type: Types.PRODUCT_CREATE_SUCCESS, data: product });
             // getList();
             ToastAndroid.show('เพิ่มรายการสำเร็จ', ToastAndroid.SHORT);
             await dispatch({ type: 'PRODUCT_SCREEN' });
         } else {
             ToastAndroid.show('บางอย่างผิดพลาด', ToastAndroid.LONG);
-            return await dispatch({ type: Types.CREATE_LOADING_FAILURE })
+            return await dispatch({ type: Types.PRODUCT_CREATE_FAILURE })
         }
     }
 }

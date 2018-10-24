@@ -19,7 +19,8 @@ import {
     member,
     unitOfMeasure,
     location,
-    expense
+    expense,
+    goodReceive
 } from '../actions';
 
 const AppReducer = combineReducers({
@@ -41,7 +42,8 @@ const AppReducer = combineReducers({
     member,
     unitOfMeasure,
     location,
-    expense
+    expense,
+    goodReceive
 
 });
 

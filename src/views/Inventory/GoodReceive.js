@@ -2,7 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { Component, Fragment } from 'react';
-import * as expenseAction from '../../redux/actions/expense';
+import * as goodReceiveAction from '../../redux/actions/goodReceive';
 
 import {
     ScrollView,
@@ -36,7 +36,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
-class Expense extends Component {
+class GoodRecieve extends Component {
     state = {
         initialItem: [],
         searchInput: '',
@@ -47,7 +47,7 @@ class Expense extends Component {
     }
 
     componentDidMount = async () => {
-        const { getList, expenses } = this.props;
+        const { getList, goodReceives } = this.props;
         getList();
 
     }
@@ -58,20 +58,21 @@ class Expense extends Component {
 
     searchList = () => {
         const { searchInput } = this.state;
-        const { expenses } = this.props;
-        if (searchInput && expenses) return expenses.filter(e => e.title.match(new RegExp(searchInput, 'gi')));
-        else return expenses;
+        const { goodReceives } = this.props;
+        // console.log(goodReceives);
+        if (searchInput && goodReceives) return goodReceives.filter(e => e.title.match(new RegExp(searchInput, 'gi')));
+        else return goodReceives;
     }
 
     render() {
-        const { backpress, replace, isLoading, navigation, expenses } = this.props;
-        const listTitle = 'expenses'
+        const { backpress, replace, isLoading, navigation, goodReceives } = this.props;
+        const listTitle = 'goodReceives'
         if (isLoading) return <Spinner visible={isLoading} textContent={"กำลังโหลด..."} textStyle={{ color: 'white' }} />
         return (
             <Fragment>
-                <ListHeader navigation={navigation} listTitle={listTitle} search={this.searchFilter} data={expenses} />
+                <ListHeader navigation={navigation} listTitle={listTitle} search={this.searchFilter} data={goodReceives} />
                 <ScrollView style={styles.container}>
-                    <ShowList menu={menu.expense} backpress={backpress} navigation={navigation} list={this.searchList()} listTitle={listTitle} />
+                    <ShowList menu={menu.goodReceive} backpress={backpress} navigation={navigation} list={this.searchList()} listTitle={listTitle} />
                 </ScrollView>
                 <View style={styles.bottomBar} />
             </Fragment>
@@ -79,8 +80,8 @@ class Expense extends Component {
     }
 }
 
-Expense.navigationOptions = () => ({
-    title: 'Expense',
+GoodRecieve.navigationOptions = () => ({
+    title: 'Good Recieve',
     headerTintColor: 'black',
     headerStyle: {
         backgroundColor: 'white'
@@ -104,16 +105,16 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    isLoading: state.expense.isLoading,
-    expenses: state.expense.expenses,
+    isLoading: state.goodReceive.isLoading,
+    goodReceives: state.goodReceive.goodReceives,
 });
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
-            ...expenseAction,
+            ...goodReceiveAction,
         }, dispatch
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Expense);
+export default connect(mapStateToProps, mapDispatchToProps)(GoodRecieve);

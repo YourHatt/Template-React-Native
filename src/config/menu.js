@@ -68,7 +68,7 @@ export default menu = {
         {
             icon: 'wifi',
             label: 'Goods Receive',
-            link: 'Inventory',
+            link: 'GOODRECEIVE_SCREEN',
             view: '',
             permission: ''
         },
@@ -350,8 +350,8 @@ export default menu = {
             link: 'Inventory',
             view: '',
             permission: '',
-            menuKey :'product',
-            form:'FORM_SCREEN'
+            menuKey: 'product',
+            form: 'FORM_SCREEN'
         },
         {
             icon: 'wifi',
@@ -359,8 +359,8 @@ export default menu = {
             link: 'Inventory',
             view: '',
             permission: '',
-            menuKey :'product',            
-            form:'FORM_SCREEN'
+            menuKey: 'product',
+            form: 'FORM_SCREEN'
         },
         {
             icon: 'wifi',
@@ -368,9 +368,9 @@ export default menu = {
             link: 'Inventory',
             view: '',
             permission: '',
-            menuKey :'product',                        
-            form:'FORM_SCREEN'
-            
+            menuKey: 'product',
+            form: 'FORM_SCREEN'
+
         },
         {
             icon: 'wifi',
@@ -378,9 +378,9 @@ export default menu = {
             link: 'Inventory',
             view: '',
             permission: '',
-            menuKey :'product',                        
-            form:'FORM_SCREEN'
-            
+            menuKey: 'product',
+            form: 'FORM_SCREEN'
+
         },
         {
             icon: 'wifi',
@@ -388,9 +388,9 @@ export default menu = {
             link: 'Inventory',
             view: '',
             permission: '',
-            menuKey :'product',                        
-            form:'FORM_SCREEN'
-            
+            menuKey: 'product',
+            form: 'FORM_SCREEN'
+
         },
         {
             icon: 'wifi',
@@ -398,9 +398,9 @@ export default menu = {
             link: 'Inventory',
             view: '',
             permission: '',
-            menuKey :'product',                        
-            form:'FORM_SCREEN'
-            
+            menuKey: 'product',
+            form: 'FORM_SCREEN'
+
         },
     ],
 }
