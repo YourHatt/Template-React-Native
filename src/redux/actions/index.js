@@ -16,3 +16,4 @@ export { default as formInput } from './formInput';
 export { default as member } from './member';
 export { default as unitOfMeasure } from './unitOfMeasure';
 export { default as location } from './location';
+export { default as expense } from './expense';

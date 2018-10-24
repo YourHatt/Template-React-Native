@@ -15,3 +15,4 @@ export { default as FormInput } from './FormInput/FormInput';
 export { default as Member } from './MasterData/Member';
 export { default as UnitOfMeasure } from './MasterData/UnitOfMeasure';
 export { default as Location } from './MasterData/Location';
+export { default as Expense } from './MasterData/Expense';

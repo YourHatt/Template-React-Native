@@ -1,6 +1,7 @@
 /**
  * Navagation Types
  */
+//_SCREEN
 export const BACK_PRESS = 'BACK_PRESS';
 export const INVENTORY_SCREEN = 'INVENTORY_SCREEN';
 export const SALERECEIVING_SCREEN = 'SALERECEIVING_SCREEN';
@@ -16,3 +17,4 @@ export const FORM_SCREEN = 'FORM_SCREEN';
 export const MEMBER_SCREEN = 'MEMBER_SCREEN';
 export const UNITOFMEASURE_SCREEN = 'UNITOFMEASURE_SCREEN';
 export const LOCATION_SCREEN = 'LOCATION_SCREEN';
+export const EXPENSE_SCREEN = 'EXPENSE_SCREEN';

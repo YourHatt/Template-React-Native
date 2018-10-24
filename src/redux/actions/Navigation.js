@@ -100,6 +100,12 @@ const nav = (state = initialNavState, action) => {
                 state
             )
             break;
+        case Types.EXPENSE_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'Expense' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;

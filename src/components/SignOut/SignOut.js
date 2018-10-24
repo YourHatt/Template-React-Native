@@ -11,7 +11,7 @@ class SignOut extends Component {
         const { onSignOut } = this.props
         return (
             <View>
-                <Button style={{ backgroundColor: 'rgba(255, 255, 255,1.0)'}} onPress={() => onSignOut()}>
+                <Button style={{ backgroundColor: 'rgba(255, 255, 255,1.0)' }} onPress={() => onSignOut()}>
                     <Icon active type='Feather' name='log-out' style={{ color: '#2962ff' }} />
                 </Button>
             </View>

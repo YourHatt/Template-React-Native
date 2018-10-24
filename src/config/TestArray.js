@@ -111,4 +111,42 @@ export default myArray = {
            
         }
     ],
+    array_expense: [
+        {
+            name: 'ex1',
+            
+        },
+        {
+            name: 'ez2',
+           
+        },
+        {
+            name: 'exx2',
+           
+        },
+        {
+            name: 'ez',
+           
+        },
+        {
+            name: 'ex',
+            
+        },
+        {
+            name: 'ex5',
+           
+        },
+        {
+            name: 'ex7',
+          
+        },
+        {
+            name: 'excx',
+           
+        },
+        {
+            name: 'exx',
+           
+        }
+    ],
 }
