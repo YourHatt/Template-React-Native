@@ -160,7 +160,6 @@ export default myArray = {
     ],
     array_GR: [
         {
-            title: 'title GR',
             product: 'Good Receive Test',
             location: 'ddddd',
             reference: 'dddddd',
@@ -171,7 +170,6 @@ export default myArray = {
             lotNumber: 'ddddddd',
         },
         {
-            title: 'aaaa',
             product: 'eeeeee',
             location: 'eeee',
             reference: 'eeeeee',
@@ -182,7 +180,6 @@ export default myArray = {
             lotNumber: 'ddddddd',
         },
         {
-            title: 'cccc',
             product: 'eeeee',
             location: 'deeedddd',
             reference: 'dddddd',
@@ -193,7 +190,6 @@ export default myArray = {
             lotNumber: 'ddddddd',
         },
         {
-            title: 't',
             product: 'ee1',
             location: 'ddddd',
             reference: 'dddddd',
@@ -204,7 +200,6 @@ export default myArray = {
             lotNumber: 'ddddddd',
         },
         {
-            title: 'dddddddd',
             product: 'e1e',
             location: 'ddddd',
             reference: 'dddddd',
@@ -215,7 +210,6 @@ export default myArray = {
             lotNumber: 'ddddddd',
         },
         {
-            title: 'tddddd',
             product: 'dass',
             location: 'ddddd',
             reference: 'dddddd',
@@ -226,7 +220,6 @@ export default myArray = {
             lotNumber: 'ddddddd',
         },
         {
-            title: 'titdadassa',
             product: 'sadsd',
             location: 'ddddd',
             reference: 'dddddd',
@@ -237,7 +230,6 @@ export default myArray = {
             lotNumber: 'ddddddd',
         },
         {
-            title: 'tidsad',
             product: 'xczxzc',
             location: 'ddddd',
             reference: 'dddddd',
@@ -248,7 +240,6 @@ export default myArray = {
             lotNumber: 'ddddddd',
         },
         {
-            title: 'tisdadsdas',
             product: 'xzczxzcz',
             location: 'ddddd',
             reference: 'dddddd',

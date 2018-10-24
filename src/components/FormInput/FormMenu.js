@@ -21,7 +21,8 @@ import {
     FormMember,
     // FormLocation,
     // FormUnitOfMeasure,
-    FormExpense
+    FormExpense,
+    FormGoodReceive
 } from '../index'
 
 export default class FormMenu extends Component {
@@ -40,6 +41,8 @@ export default class FormMenu extends Component {
             //     return <FormUnitOfMeasure itemData={itemData} navi={navigation} />
             case 'expenses':
                 return <FormExpense itemData={itemData} navi={navigation} />
+            case 'goodReceive':
+                return <FormGoodReceive itemData={itemData} navi={navigation} />
             default:
                 return <View>
                 </View>

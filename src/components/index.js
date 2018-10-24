@@ -5,3 +5,4 @@ export { default as FormMenu } from './FormInput/FormMenu';
 export { default as FormProduct } from './FormInput/FormProduct';
 export { default as FormMember } from './FormInput/FormMember';
 export { default as FormExpense } from './FormInput/FormExpense';
+export { default as FormGoodReceive } from './FormInput/FormGoodReceive';

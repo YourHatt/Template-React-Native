@@ -8,7 +8,6 @@ import {
 import { NavigationActions, StackActions } from 'react-navigation';
 
 const initialState = {
-    title: '',
     product: '',
     location: '',
     reference: '',
@@ -55,7 +54,6 @@ const goodReceive = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                title: initialState.title,
                 product: initialState.product,
                 location: initialState.location,
                 reference: initialState.reference,
@@ -90,7 +88,6 @@ const goodReceive = (state = initialState, action) => {
         case Types.GOODRECEIVE_INPUT_CHANGE:
             return {
                 ...state,
-                title: action.title, //title to show product label
                 product: action.product,
                 location: action.location,
                 reference: action.reference,
