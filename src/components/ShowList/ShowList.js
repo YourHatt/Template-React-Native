@@ -43,7 +43,7 @@ export default class ShowList extends Component {
                     <Thumbnail square source={require('../../../assets/icon.png')} />
                 </Left>
                 <Body>
-                    <Text>{e.title ? e.title : e.name ? e.name : e.label}</Text>
+                    <Text>{e.title ? e.title : e.name ? e.name : e.label ? e.label : e.id}</Text>
                     {/* <Text note numberOfLines={1}>{e.status ? e.status : e.address ? e.address : e.description}</Text> */}
                     <Text note numberOfLines={1}>{listTitle}</Text>
                 </Body>

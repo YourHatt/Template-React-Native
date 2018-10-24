@@ -108,23 +108,6 @@ class FormMember extends Component {
                                 </Body>
                             </CardItem>
                         </Card>
-                        {/* <Autocomplete
-                            data={data}
-                            defaultValue={testSearchProduct}
-                            onChangeText={text => this.setState({ testSearchProduct: text })}
-                            renderItem={item => (
-                                <TouchableOpacity onPress={() => this.setState({ testSearchProduct: item })}>
-                                    <Text>{item}</Text>
-                                </TouchableOpacity>
-                            )}
-                        /> */}
-                        {/* <Card>
-                            <CardItem button onPress={() => this.toggleSearchinput(this.state.showSearchInput)}>
-                                <Body>
-                                    <TextInput editable={false} value={testName} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
-                                </Body>
-                            </CardItem>
-                        </Card> */}
                         <Button onPress={() => { this.onInputChange() }}><Text> SUBMIT</Text></Button>
                     </Content>
                 </View >
