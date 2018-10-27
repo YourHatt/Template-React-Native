@@ -250,4 +250,35 @@ export default myArray = {
             lotNumber: 'ddddddd',
         }
     ],
+    array_UOM: [
+        {
+            id:'a1244444',
+            description:'Tester 1',
+        },
+        {
+            id:'b1244444',
+            description:'Tester 2',
+        },
+        {
+            id:'c1244444',
+            description:'Tester 3',
+        },
+        {
+            id:'d1244444',
+            description:'Tester 4',
+        },
+        {
+            id:'e1244444',
+            description:'Tester 5',
+        },
+        {
+            id:'f1244444',
+            description:'Tester 6',
+        },
+        {
+            id:'g1244444',
+            description:'Tester 7',
+        },
+       
+    ],
 }

@@ -74,7 +74,7 @@ export default menu = {
         },
         {
             icon: 'wifi',
-            label: 'Good Transter',
+            label: 'Good Transfer',
             link: 'Inventory',
             view: '',
             permission: ''

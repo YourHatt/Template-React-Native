@@ -186,6 +186,8 @@ export function onAuthen() {
     return async (dispatch, getState) => {
         const { login: { email, password } } = getState();
         await dispatch(replace('Home'))
+        ToastAndroid.show('ลงชื่อเข้าสู่ระบบสำเร็จ', ToastAndroid.SHORT);
+        
     }
 }
 
