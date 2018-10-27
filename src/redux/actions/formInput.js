@@ -2,6 +2,7 @@ import { NavigationActions, StackActions } from 'react-navigation';
 
 const initialState = {
     data: {},
+    edit: false,
     formType: '',
     isLoading: false
 };
@@ -34,7 +35,8 @@ const formInput = (state = initialState, action) => {
             return {
                 ...state,
                 formType: action.formType,
-                data: action.data
+                data: action.data,
+                edit: action.edit
             }
         default:
             return state;

@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -10,11 +10,11 @@ class SignOut extends Component {
     render() {
         const { onSignOut } = this.props
         return (
-            <View>
-                <Button style={{ backgroundColor: 'rgba(255, 255, 255,1.0)' }} onPress={() => onSignOut()}>
-                    <Icon active type='Feather' name='log-out' style={{ color: '#2962ff' }} />
-                </Button>
-            </View>
+            <TouchableOpacity onPress={() => onSignOut()}>
+                <View style={{ width: 50, alignItems: 'center' }}>
+                    <Icon active type='Feather' name='log-out' style={{ color: 'white' }} />
+                </View>
+            </TouchableOpacity>
         )
     }
 }

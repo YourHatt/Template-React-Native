@@ -46,6 +46,16 @@ class GoodRecieve extends Component {
         navigation: PropTypes.object.isRequired
     }
 
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Good Recieve</Text>,
+            headerStyle: {
+                backgroundColor: '#1E8DAB',
+            },
+
+        }
+    }
+
     componentDidMount = async () => {
         const { getList, goodReceives } = this.props;
         getList();
@@ -80,13 +90,6 @@ class GoodRecieve extends Component {
     }
 }
 
-GoodRecieve.navigationOptions = () => ({
-    title: 'Good Recieve',
-    headerTintColor: 'black',
-    headerStyle: {
-        backgroundColor: 'white'
-    }
-});
 const styles = StyleSheet.create({
     container: {
         flex: 1,

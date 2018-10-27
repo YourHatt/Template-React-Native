@@ -21,9 +21,8 @@ export default class ListHeader extends Component {
         const { navigation, listTitle, search, datas } = this.props
         return (
             <View style={styles.topBar}>
-
-                <TextInput placeholder='search' style={styles.inputText} underlineColorAndroid='rgba(0,0,0,0)' onChangeText={e => search(e, datas)} />
-                <Button style={styles.addButton} onPress={() => navigation.dispatch({ type: 'FORM_SCREEN', formType: listTitle })}>
+                <TextInput placeholder='search' style={styles.inputText} underlineColorAndroid='#64D4BE' onChangeText={e => search(e, datas)} placeholderTextColor='#24C1A2' maxLength={36} />
+                <Button style={styles.addButton} onPress={() => navigation.dispatch({ type: 'FORM_SCREEN', formType: listTitle, edit: false })}>
                     <Icon active type='Ionicons' name='add' />
                 </Button>
             </View >
@@ -34,9 +33,9 @@ const styles = StyleSheet.create({
     topBar: {
         flexDirection: 'row',
         width: '100%',
-        height: 50,
-        backgroundColor: '#efefef',
-        alignItems: 'center',
+        height: 60,
+        backgroundColor: 'white',
+        alignItems: 'flex-end',
         justifyContent: 'center'
     },
     text: {
@@ -45,25 +44,26 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     inputText: {
-        width: '90%',
+        width: '80%',
         height: 40,
         borderWidth: 1,
         borderStyle: 'solid',
         fontSize: 15,
-        borderTopLeftRadius: 10,
-        borderBottomLeftRadius: 10,
         backgroundColor: 'white',
         borderColor: 'white',
-        textAlign: 'center',
+        textAlign: 'left',
         paddingLeft: 10,
-        paddingRight: 10
+        paddingRight: 10,
+        // color: '#1E8DAB'
     },
     addButton: {
-        height: 40,
+        height: 50,
+        width: 50,
+        borderRadius: 50 / 2,
         marginTop: '1%',
-        backgroundColor: '#2962ff',
-        borderTopRightRadius: 10,
-        borderBottomRightRadius: 10
+        backgroundColor: '#64D4BE',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 
 });

@@ -45,7 +45,15 @@ class Member extends Component {
     static propTypes = {
         navigation: PropTypes.object.isRequired
     }
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Member</Text>,
+            headerStyle: {
+                backgroundColor: '#1E8DAB',
+            },
 
+        }
+    }
     componentDidMount = async () => {
         const { getList, members } = this.props;
         getList();
@@ -72,19 +80,12 @@ class Member extends Component {
                 <ScrollView style={styles.container}>
                     <ShowList menu={menu.member} backpress={backpress} navigation={navigation} list={this.searchList()} listTitle={listTitle} />
                 </ScrollView>
-                <View style ={styles.bottomBar} />
+                <View style={styles.bottomBar} />
             </Fragment>
         )
     }
 }
 
-Member.navigationOptions = () => ({
-    title: 'Members',
-    headerTintColor: 'black',
-    headerStyle: {
-        backgroundColor: 'white'
-    }
-});
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -98,7 +99,8 @@ const styles = StyleSheet.create({
     bottomBar: {
         width: '100%',
         height: 20,
-        backgroundColor: '#efefef',
+        backgroundColor: 'white',
+        
     },
 });
 

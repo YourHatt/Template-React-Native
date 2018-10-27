@@ -9,8 +9,8 @@ import {
     StyleSheet,
     Dimensions,
     TouchableOpacity,
-    View
-
+    View,
+    ImageBackground
 } from 'react-native';
 
 import menu from '../../config/menu'
@@ -41,7 +41,15 @@ class Product extends Component {
         initialItem: [],
         searchInput: '',
     }
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Product</Text>,
+            headerStyle: {
+                backgroundColor: '#1E8DAB',
+            },
 
+        }
+    }
     static propTypes = {
         navigation: PropTypes.object.isRequired
     }
@@ -72,23 +80,17 @@ class Product extends Component {
                 <ScrollView style={styles.container}>
                     <ShowList menu={menu.product} backpress={backpress} navigation={navigation} list={this.searchList()} listTitle={listTitle} />
                 </ScrollView>
-                <View style ={styles.bottomBar} />
+                <View style={styles.bottomBar} />
             </Fragment>
         )
     }
 }
 
-Product.navigationOptions = () => ({
-    title: 'Products',
-    headerTintColor: 'black',
-    headerStyle: {
-        backgroundColor: 'white'
-    }
-});
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ffffff'
+        backgroundColor: 'white'
     },
     text: {
         flex: 1,
@@ -98,7 +100,7 @@ const styles = StyleSheet.create({
     bottomBar: {
         width: '100%',
         height: 20,
-        backgroundColor: '#efefef',
+        backgroundColor: 'white',
     },
 });
 

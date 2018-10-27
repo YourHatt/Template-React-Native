@@ -46,6 +46,16 @@ class Location extends Component {
         navigation: PropTypes.object.isRequired
     }
 
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Location</Text>,
+            headerStyle: {
+                backgroundColor: '#1E8DAB',
+            },
+
+        }
+    }
+
     componentDidMount = async () => {
         const { getList, locations } = this.props;
         getList();
@@ -78,13 +88,6 @@ class Location extends Component {
     }
 }
 
-Location.navigationOptions = () => ({
-    title: 'Location',
-    headerTintColor: 'black',
-    headerStyle: {
-        backgroundColor: 'white'
-    }
-});
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -98,7 +101,7 @@ const styles = StyleSheet.create({
     bottomBar: {
         width: '100%',
         height: 20,
-        backgroundColor: '#efefef',
+        backgroundColor: 'white',
     },
 });
 

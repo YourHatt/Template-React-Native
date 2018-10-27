@@ -30,10 +30,19 @@ const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
 class FormInput extends Component {
-
     static propTypes = {
-        navigation: PropTypes.object.isRequired
+        navigation: PropTypes.object.isRequired,
     }
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Infomation Form</Text>,
+            headerStyle: {
+                backgroundColor: '#1E8DAB',
+            },
+
+        }
+    }
+
     render() {
         const { navigation, user, isLoading, data, formType } = this.props;
         // console.log(data, formType)
@@ -49,15 +58,6 @@ class FormInput extends Component {
     }
 }
 
-FormInput.navigationOptions = () => ({
-    title: 'Form Input',
-    headerTintColor: 'black',
-    headerStyle: {
-        backgroundColor: '#ffffff'
-    },
-    headerRight: <SignOut />
-});
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     formType: state.formInput.formType,
-    data: state.formInput.data
+    data: state.formInput.data,
 });
 
 const mapDispatchToProps = dispatch => {

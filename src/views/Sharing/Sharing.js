@@ -9,7 +9,8 @@ import {
     StyleSheet,
     Dimensions,
     TouchableOpacity,
-    View
+    View,
+    ImageBackground
 
 } from 'react-native';
 
@@ -41,6 +42,16 @@ class Sharing extends Component {
         navigation: PropTypes.object.isRequired
     }
 
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Master Data</Text>,
+            headerStyle: {
+                backgroundColor: '#1E8DAB',
+            },
+
+        }
+    }
+
     // renderListItems = () => {
     //     const { navigation } = this.props
     //     return menu.Sharing.map((e, i) => {
@@ -68,29 +79,25 @@ class Sharing extends Component {
         const { isLoading, navigation } = this.props;
         if (isLoading) return <Spinner visible={isLoading} textContent={"กำลังโหลด..."} textStyle={{ color: 'white' }} />
         return (
-            <Fragment>
-                <ScrollView style={styles.container}>
-                    {/* <List style={{ marginTop: 10 }}>
+            <ImageBackground source={require('../../../assets/background/background.png')} style={{ flex: 1 }}>
+                <Fragment>
+                    <ScrollView style={styles.container}>
+                        {/* <List style={{ marginTop: 10 }}>
                         {this.renderListItems()}
                     </List> */}
-                    <Text>SHARING_SCREEN</Text>
-                </ScrollView>
-            </Fragment>
+                        <Text>SHARING_SCREEN</Text>
+                    </ScrollView>
+                </Fragment>
+            </ImageBackground>
+
         )
     }
 }
 
-Sharing.navigationOptions = () => ({
-    title: 'Shaing',
-    headerTintColor: 'black',
-    headerStyle: {
-        backgroundColor: 'white'
-    }
-});
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ffffff'
+        backgroundColor: 'rgba(255,255,255,0.75)'
     },
     text: {
         flex: 1,

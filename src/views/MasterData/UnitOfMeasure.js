@@ -50,7 +50,15 @@ class UnitOfMeasure extends Component {
         const { getList, unitOfMeasures } = this.props;
         getList();
     }
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Unit Of Measure</Text>,
+            headerStyle: {
+                backgroundColor: '#1E8DAB',
+            },
 
+        }
+    }
     searchFilter = (searchWord, data) => {
         this.setState({ searchInput: searchWord })
     }
@@ -72,19 +80,12 @@ class UnitOfMeasure extends Component {
                 <ScrollView style={styles.container}>
                     <ShowList menu={menu.unitOfMeasure} backpress={backpress} navigation={navigation} list={this.searchList()} listTitle={listTitle} />
                 </ScrollView>
-                <View style ={styles.bottomBar} />
+                <View style={styles.bottomBar} />
             </Fragment>
         )
     }
 }
 
-UnitOfMeasure.navigationOptions = () => ({
-    title: 'Unit Of Measures',
-    headerTintColor: 'black',
-    headerStyle: {
-        backgroundColor: 'white'
-    }
-});
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
     bottomBar: {
         width: '100%',
         height: 20,
-        backgroundColor: '#efefef',
+        backgroundColor: 'white',
     },
 });
 

@@ -9,7 +9,8 @@ import {
     StyleSheet,
     Dimensions,
     TouchableOpacity,
-    View
+    View,
+    ImageBackground
 
 } from 'react-native';
 
@@ -41,6 +42,16 @@ class TimeManagement extends Component {
         navigation: PropTypes.object.isRequired
     }
 
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Time Management</Text>,
+            headerStyle: {
+                backgroundColor: '#1E8DAB',
+            },
+
+        }
+    }
+
     renderListItems = () => {
         const { navigation } = this.props
         return menu.timeManagement.map((e, i) => {
@@ -48,7 +59,7 @@ class TimeManagement extends Component {
                 <Left>
                     <Button
                         onPress={() => navigation.dispatch({ type: e.link })}
-                        style={{ backgroundColor: "#007AFF", justifyContent: 'center', alignItems: 'center', marginBottom: 10 }}>
+                        style={{ backgroundColor: "#1E8DAB", justifyContent: 'center', alignItems: 'center', marginBottom: 10 }}>
                         <Icon active name={e.icon} />
                     </Button>
                 </Left>
@@ -68,6 +79,7 @@ class TimeManagement extends Component {
         const { isLoading, navigation } = this.props;
         if (isLoading) return <Spinner visible={isLoading} textContent={"กำลังโหลด..."} textStyle={{ color: 'white' }} />
         return (
+            <ImageBackground source={require('../../../assets/background/background.png')} style={{ flex: 1 }}>
             <Fragment>
                 <ScrollView style={styles.container}>
                     <List style={{ marginTop: 10 }}>
@@ -75,21 +87,16 @@ class TimeManagement extends Component {
                     </List>
                 </ScrollView>
             </Fragment>
+        </ImageBackground>
         )
     }
 }
 
-TimeManagement.navigationOptions = () => ({
-    title: 'Time Management',
-    headerTintColor: 'black',
-    headerStyle: {
-        backgroundColor: 'white'
-    }
-});
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ffffff'
+        backgroundColor: 'rgba(255,255,255,0.75)'
     },
     text: {
         flex: 1,

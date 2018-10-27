@@ -8,8 +8,8 @@ import {
     StyleSheet,
     Dimensions,
     TouchableOpacity,
-    View
-
+    View,
+    ImageBackground
 } from 'react-native';
 
 import menu from '../../config/menu'
@@ -26,7 +26,7 @@ import {
 } from 'native-base';
 
 import {
- SignOut
+    SignOut
 } from '../../components';
 
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -39,7 +39,15 @@ class Home extends Component {
     static propTypes = {
         navigation: PropTypes.object.isRequired
     }
-
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22, marginLeft: '5%' }}>Home</Text>,
+            headerStyle: {
+                backgroundColor: '#1E8DAB',
+            },
+            headerRight: <SignOut />
+        }
+    }
     renderListItems = () => {
         const { navigation } = this.props
         return menu.mainMenu.map((e, i) => {
@@ -47,7 +55,7 @@ class Home extends Component {
                 <Left>
                     <Button
                         onPress={() => navigation.dispatch({ type: e.link })}
-                        style={{ backgroundColor: "#007AFF", justifyContent: 'center', alignItems: 'center', marginBottom: 10 }}>
+                        style={{ backgroundColor: '#1E8DAB', justifyContent: 'center', alignItems: 'center', marginBottom: 10 }}>
                         <Icon active name={e.icon} />
                     </Button>
                 </Left>
@@ -67,30 +75,24 @@ class Home extends Component {
         const { isLoading, navigation } = this.props;
         if (isLoading) return <Spinner visible={isLoading} textContent={"กำลังโหลด..."} textStyle={{ color: 'white' }} />
         return (
-            <Fragment>
-                <ScrollView style={styles.container}>
-                    <List style={{ marginTop: 10 }}>
-                        {this.renderListItems()}
-                    </List>
-                </ScrollView>
-            </Fragment>
+            <ImageBackground source={require('../../../assets/background/background.png')} style={{ flex: 1 }}>
+                <Fragment>
+                    <ScrollView style={styles.container}>
+                        <List style={{ marginTop: 10 }}>
+                            {this.renderListItems()}
+                        </List>
+                    </ScrollView>
+                </Fragment>
+            </ImageBackground>
+
         )
     }
 }
 
-Home.navigationOptions = () => ({
-    title: 'Home',
-    headerTintColor: 'black',
-    headerStyle: {
-        backgroundColor: 'white'
-    },
-    headerRight: <SignOut />
-
-});
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ffffff'
+        backgroundColor: 'rgba(255,255,255,0.75)'
     },
     text: {
         flex: 1,

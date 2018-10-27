@@ -56,9 +56,10 @@ class FormExpense extends Component {
         return (
             <View>
                 <Content padder>
-                    <Card>
+                    <Text style={[styles.text, { marginVertical: 10 }]}> Expense </Text>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> ExpenseId </Text>
+                            <Text style={styles.text}> ExpenseId </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
@@ -66,9 +67,9 @@ class FormExpense extends Component {
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> description </Text>
+                            <Text style={styles.text}> description </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
@@ -76,7 +77,7 @@ class FormExpense extends Component {
                             </Body>
                         </CardItem>
                     </Card>
-                    <Button onPress={() => { this.onInputChange() }}><Text> SUBMIT</Text></Button>
+                    <Button style={{ backgroundColor: '#24C1A2' }} block onPress={() => { this.onInputChange() }}><Text> {itemData ? 'Save' : 'Add'}</Text></Button>
                 </Content>
             </View>
         )
@@ -88,19 +89,24 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff'
     },
     text: {
+        // marginLeft: 20,
         flex: 1,
         fontSize: 20,
-        color: 'black'
+        color: '#1E8DAB'
     },
     input: {
         paddingLeft: 10,
-        width: '80%',
+        width: '100%',
         height: 50,
         borderRadius: 10,
         borderWidth: 1.5,
         borderColor: '#e8edf4',
         fontSize: 20,
         color: 'black'
+    },
+    cardForm: {
+        borderBottomWidth: 1,
+        borderColor: '#64D4BE'
     }
 });
 const mapStateToProps = state => ({

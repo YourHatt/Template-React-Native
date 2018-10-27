@@ -67,50 +67,51 @@ class FormMember extends Component {
         const { itemData } = this.props;
         return (
             <View>
-                    <Content padder>
-                        <Card>
-                            <CardItem>
-                                <Text> Member Name </Text>
-                            </CardItem>
-                            <CardItem>
-                                <Body>
-                                    <TextInput value={this.state.name} onChangeText={e => this.setState({ name: e })} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
-                                </Body>
-                            </CardItem>
-                        </Card>
-                        <Card>
-                            <CardItem>
-                                <Text> Address </Text>
-                            </CardItem>
-                            <CardItem>
-                                <Body>
-                                    <TextInput value={this.state.address} onChangeText={e => this.setState({ address: e })} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
-                                </Body>
-                            </CardItem>
-                        </Card>
-                        <Card>
-                            <CardItem>
-                                <Text> Tel </Text>
-                            </CardItem>
-                            <CardItem>
-                                <Body>
-                                    <TextInput value={this.state.tel} onChangeText={e => this.setState({ tel: e })} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
-                                </Body>
-                            </CardItem>
-                        </Card>
-                        <Card>
-                            <CardItem>
-                                <Text> Number Of Shares </Text>
-                            </CardItem>
-                            <CardItem>
-                                <Body>
-                                    <TextInput value={this.state.numberOfShares} onChangeText={e => this.setState({ numberOfShares: e })} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
-                                </Body>
-                            </CardItem>
-                        </Card>
-                        <Button onPress={() => { this.onInputChange() }}><Text> SUBMIT</Text></Button>
-                    </Content>
-                </View >
+                <Content padder>
+                    <Text style={[styles.text, { marginVertical: 10 }]}> Product </Text>
+                    <Card style={styles.cardForm}>
+                        <CardItem>
+                            <Text style={styles.text}> Member Name </Text>
+                        </CardItem>
+                        <CardItem>
+                            <Body>
+                                <TextInput value={this.state.name} onChangeText={e => this.setState({ name: e })} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
+                            </Body>
+                        </CardItem>
+                    </Card>
+                    <Card style={styles.cardForm}>
+                        <CardItem>
+                            <Text style={styles.text}> Address </Text>
+                        </CardItem>
+                        <CardItem>
+                            <Body>
+                                <TextInput value={this.state.address} onChangeText={e => this.setState({ address: e })} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
+                            </Body>
+                        </CardItem>
+                    </Card>
+                    <Card style={styles.cardForm}>
+                        <CardItem>
+                            <Text style={styles.text}> Tel </Text>
+                        </CardItem>
+                        <CardItem>
+                            <Body>
+                                <TextInput value={this.state.tel} onChangeText={e => this.setState({ tel: e })} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
+                            </Body>
+                        </CardItem>
+                    </Card>
+                    <Card style={styles.cardForm}>
+                        <CardItem>
+                            <Text style={styles.text}> Number Of Shares </Text>
+                        </CardItem>
+                        <CardItem>
+                            <Body>
+                                <TextInput value={this.state.numberOfShares} onChangeText={e => this.setState({ numberOfShares: e })} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
+                            </Body>
+                        </CardItem>
+                    </Card>
+                    <Button style={{ backgroundColor: '#24C1A2' }} block onPress={() => { this.onInputChange() }}><Text> {itemData ? 'Save' : 'Add'}</Text></Button>
+                </Content>
+            </View >
         )
     }
 }
@@ -120,19 +121,24 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff'
     },
     text: {
+        // marginLeft: 20,
         flex: 1,
         fontSize: 20,
-        color: 'black'
+        color: '#1E8DAB'
     },
     input: {
         paddingLeft: 10,
-        width: '80%',
+        width: '100%',
         height: 50,
         borderRadius: 10,
         borderWidth: 1.5,
         borderColor: '#e8edf4',
         fontSize: 20,
         color: 'black'
+    },
+    cardForm: {
+        borderBottomWidth: 1,
+        borderColor: '#64D4BE'
     }
 });
 const mapStateToProps = state => ({

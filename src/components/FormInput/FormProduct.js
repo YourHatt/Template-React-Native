@@ -43,6 +43,16 @@ class FormProduct extends Component {
             vatPrice: '',
         }
     }
+    static navigationOptions = ({ navigation }) => {
+        const { itemData } = this.props
+        return {
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>{itemData ? 'Edit Product' : 'Create Product'}</Text>,
+            headerStyle: {
+                backgroundColor: '#1E8DAB',
+            },
+
+        }
+    }
     componentDidMount() {
         const { itemData } = this.props;
         if (itemData) {
@@ -73,9 +83,10 @@ class FormProduct extends Component {
         return (
             <View>
                 <Content padder>
-                    <Card>
+                    <Text style={[styles.text, { marginVertical: 10 }]}> Product </Text>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> Product </Text>
+                            <Text style={styles.text}> Product </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
@@ -83,9 +94,9 @@ class FormProduct extends Component {
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> Status </Text>
+                            <Text style={styles.text}> Status </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
@@ -93,9 +104,9 @@ class FormProduct extends Component {
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> Unit Cost </Text>
+                            <Text style={styles.text}> Unit Cost </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
@@ -103,9 +114,9 @@ class FormProduct extends Component {
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> Unit Of Measure </Text>
+                            <Text style={styles.text}> Unit Of Measure </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
@@ -113,9 +124,9 @@ class FormProduct extends Component {
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> Unit Price </Text>
+                            <Text style={styles.text}> Unit Price </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
@@ -123,9 +134,9 @@ class FormProduct extends Component {
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> VAT Price </Text>
+                            <Text style={styles.text}> VAT Price </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
@@ -133,7 +144,7 @@ class FormProduct extends Component {
                             </Body>
                         </CardItem>
                     </Card>
-                    <Button onPress={() => { this.onInputChange() }}><Text> SUBMIT</Text></Button>
+                    <Button style={{ backgroundColor: '#24C1A2' }} block onPress={() => { this.onInputChange() }}><Text> {itemData ? 'Save' : 'Add'}</Text></Button>
                 </Content>
             </View>
         )
@@ -145,19 +156,24 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff'
     },
     text: {
+        // marginLeft: 20,
         flex: 1,
         fontSize: 20,
-        color: 'black'
+        color: '#1E8DAB'
     },
     input: {
         paddingLeft: 10,
-        width: '80%',
+        width: '100%',
         height: 50,
         borderRadius: 10,
         borderWidth: 1.5,
         borderColor: '#e8edf4',
         fontSize: 20,
         color: 'black'
+    },
+    cardForm: {
+        borderBottomWidth: 1,
+        borderColor: '#64D4BE'
     }
 });
 const mapStateToProps = state => ({
