@@ -18,3 +18,4 @@ export { default as MasterLocation } from './MasterData/MasterLocation';
 export { default as Expense } from './MasterData/Expense';
 export { default as GoodReceive } from './Inventory/GoodReceive';
 export { default as GoodTransfer } from './Inventory/GoodTransfer';
+export { default as RecordScrab } from './Inventory/RecordScrab';

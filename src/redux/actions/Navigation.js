@@ -118,6 +118,12 @@ const nav = (state = initialNavState, action) => {
                 state
             )
             break;
+        case Types.RECORDSCRAB_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'RecordScrab' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;

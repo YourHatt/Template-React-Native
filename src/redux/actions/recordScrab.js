@@ -11,84 +11,81 @@ const initialState = {
     product: '',
     lotNumber: '',
     unitOfMeasure: '',
-    fromLocation: '',
-    toLocation: '',
+    location: '',
     qty: '',
     isLoading: false,
-    goodTransfers: []
+    recordScrabs: []
 };
 
 
 
-const goodTransfer = (state = initialState, action) => {
+const recordScrab = (state = initialState, action) => {
     switch (action.type) {
-        case Types.GOODTRANSFER_LOADING_STARTED:
+        case Types.RECORDSCRAB_LOADING_STARTED:
             return {
                 ...state,
                 isLoading: true
             }
-        case Types.GOODTRANSFER_CREATE_STARTED:
+        case Types.RECORDSCRAB_CREATE_STARTED:
             return {
                 ...state,
                 isLoading: true,
             }
-        case Types.GOODTRANSFER_GET_STARTED:
+        case Types.RECORDSCRAB_GET_STARTED:
             return {
                 ...state,
                 isLoading: true
             }
-        case Types.GOODTRANSFER_LIST_STARTED:
+        case Types.RECORDSCRAB_LIST_STARTED:
             return {
                 ...state,
                 isLoading: true
             }
-        case Types.GOODTRANSFER_LOADING_SUCCESS:
+        case Types.RECORDSCRAB_LOADING_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
                 summary: action.value
             }
-        case Types.GOODTRANSFER_CREATE_SUCCESS:
+        case Types.RECORDSCRAB_CREATE_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
                 product: initialState.product,
                 lotNumber: initialState.lotNumber,
                 unitOfMeasure: initialState.unitOfMeasure,
-                fromLocation: initialState.fromLocation,
-                toLocation: initialState.toLocation,
+                location: initialState.location,
                 qty: initialState.qty,
-                goodTransfers: [...state.goodTransfers, action.data]
+                recordScrabs: [...state.recordScrabs, action.data]
             }
-        case Types.GOODTRANSFER_GET_SUCCESS:
+        case Types.RECORDSCRAB_GET_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
-                goodTransfers: action.value
+                recordScrabs: action.value
             }
-        case Types.GOODTRANSFER_LOADING_FAILURE:
+        case Types.RECORDSCRAB_LOADING_FAILURE:
             return {
                 ...state,
                 isLoading: false
             }
-        case Types.GOODTRANSFER_CREATE_FAILURE:
+        case Types.RECORDSCRAB_CREATE_FAILURE:
             return {
                 ...state,
                 isLoading: false
             }
-        case Types.GOODTRANSFER_GET_FAILURE:
+        case Types.RECORDSCRAB_GET_FAILURE:
             return {
                 ...state,
                 isLoading: false
             }
-        case Types.GOODTRANSFER_INPUT_CHANGE:
+        case Types.RECORDSCRAB_INPUT_CHANGE:
             return {
                 ...state,
                 product: action.product,
                 lotNumber: action.lotNumber,
                 unitOfMeasure: action.unitOfMeasure,
-                fromLocation: action.fromLocation,
-                toLocation: action.toLocation,
+                location: action.fromLocation,
                 qty: action.qty,
             }
         default:
@@ -97,10 +94,10 @@ const goodTransfer = (state = initialState, action) => {
 }
 export function getList() {
     return async (dispatch, getState) => {
-        await dispatch({ type: Types.GOODTRANSFER_GET_STARTED })
-        const result = myArray.array_GT
+        await dispatch({ type: Types.RECORDSCRAB_GET_STARTED })
+        const result = myArray.array_RS
         console.log(result);
-        return await dispatch({ type: Types.GOODTRANSFER_GET_SUCCESS, value: result })
+        return await dispatch({ type: Types.RECORDSCRAB_GET_SUCCESS, value: result })
     }
 }
 export function replace(routeName) {
@@ -113,26 +110,26 @@ export function replace(routeName) {
 export function onCreateSubmit(data) {
     return async dispatch => {
         await dispatch({
-            type: Types.GOODTRANSFER_INPUT_CHANGE,
-            product: data.product, lotNumber: data.lotNumber, unitOfMeasure: data.unitOfMeasure, fromLocation: data.fromLocation, toLocation: data.toLocation, qty: data.qty
+            type: Types.RECORDSCRAB_INPUT_CHANGE,
+            product: data.product, lotNumber: data.lotNumber, unitOfMeasure: data.unitOfMeasure, location: data.location,  qty: data.qty,
         });
-        await dispatch(onCreateGoodTransfer());
+        await dispatch(onCreateRecordScrab());
     }
 }
-export function onCreateGoodTransfer() {
+export function onCreateRecordScrab() {
     return async (dispatch, getState) => {
-        await dispatch({ type: Types.GOODTRANSFER_CREATE_STARTED });
-        const { goodTransfer } = getState();
-        if (goodTransfer) {
-            await dispatch({ type: Types.GOODTRANSFER_CREATE_SUCCESS, data: goodTransfer });
+        await dispatch({ type: Types.RECORDSCRAB_CREATE_STARTED });
+        const { recordScrab } = getState();
+        if (recordScrab) {
+            await dispatch({ type: Types.RECORDSCRAB_CREATE_SUCCESS, data: recordScrab });
             // getList();
             ToastAndroid.show('เพิ่มรายการสำเร็จ', ToastAndroid.SHORT);
-            await dispatch({ type: 'GOODTRANSFER_SCREEN' });
+            await dispatch({ type: 'RECORDSCRAB_SCREEN' });
         } else {
             ToastAndroid.show('บางอย่างผิดพลาด', ToastAndroid.LONG);
-            return await dispatch({ type: Types.GOODTRANSFER_CREATE_FAILURE })
+            return await dispatch({ type: Types.RECORDSCRAB_CREATE_FAILURE })
         }
     }
 }
 
-export default goodTransfer;
+export default recordScrab;

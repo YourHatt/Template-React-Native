@@ -21,7 +21,8 @@ import {
     location,
     expense,
     goodReceive,
-    goodTransfer
+    goodTransfer,
+    recordScrab
 } from '../actions';
 
 const AppReducer = combineReducers({
@@ -45,7 +46,8 @@ const AppReducer = combineReducers({
     location,
     expense,
     goodReceive,
-    goodTransfer
+    goodTransfer,
+    recordScrab
 
 });
 

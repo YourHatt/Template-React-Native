@@ -2,7 +2,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { Component, Fragment } from 'react';
-import * as goodTransferAction from '../../redux/actions/goodTransfer';
+import * as recordScrabAction from '../../redux/actions/recordScrab';
 
 import {
     ScrollView,
@@ -36,7 +36,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
-class GoodTransfer extends Component {
+class RecordScrab extends Component {
     state = {
         initialItem: [],
         searchInput: '',
@@ -48,7 +48,7 @@ class GoodTransfer extends Component {
 
     static navigationOptions = ({ navigation }) => {
         return {
-            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Good Transfer</Text>,
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>Record Scrab</Text>,
             headerStyle: {
                 backgroundColor: '#1E8DAB',
             },
@@ -57,7 +57,7 @@ class GoodTransfer extends Component {
     }
 
     componentDidMount = async () => {
-        const { getList, goodTransfer } = this.props;
+        const { getList, recordScrab } = this.props;
         getList();
 
     }
@@ -68,21 +68,21 @@ class GoodTransfer extends Component {
 
     searchList = () => {
         const { searchInput } = this.state;
-        const { goodTransfers } = this.props;
-        // console.log(goodTransfer);
-        if (searchInput && goodTransfers) return goodTransfers.filter(e => e.product.match(new RegExp(searchInput, 'gi')));
-        else return goodTransfers;
+        const { recordScrabs } = this.props;
+        // console.log(recordScrab);
+        if (searchInput && recordScrabs) return recordScrabs.filter(e => e.product.match(new RegExp(searchInput, 'gi')));
+        else return recordScrabs;
     }
 
     render() {
-        const { backpress, replace, isLoading, navigation, goodTransfers } = this.props;
-        const listTitle = 'goodTransfers'
+        const { backpress, replace, isLoading, navigation, recordScrabs } = this.props;
+        const listTitle = 'recordScrabs'
         if (isLoading) return <Spinner visible={isLoading} textContent={"กำลังโหลด..."} textStyle={{ color: 'white' }} />
         return (
             <Fragment>
-                <ListHeader navigation={navigation} listTitle={listTitle} search={this.searchFilter} data={goodTransfers} />
+                <ListHeader navigation={navigation} listTitle={listTitle} search={this.searchFilter} data={recordScrabs} />
                 <ScrollView style={styles.container}>
-                    <ShowList menu={menu.goodTransfer} backpress={backpress} navigation={navigation} list={this.searchList()} listTitle={listTitle} />
+                    <ShowList menu={menu.recordScrab} backpress={backpress} navigation={navigation} list={this.searchList()} listTitle={listTitle} />
                 </ScrollView>
                 <View style={styles.bottomBar} />
             </Fragment>
@@ -108,16 +108,16 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    isLoading: state.goodTransfer.isLoading,
-    goodTransfers: state.goodTransfer.goodTransfers,
+    isLoading: state.recordScrab.isLoading,
+    recordScrabs: state.recordScrab.recordScrabs,
 });
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
-            ...goodTransferAction,
+            ...recordScrabAction,
         }, dispatch
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GoodTransfer);
+export default connect(mapStateToProps, mapDispatchToProps)(RecordScrab);

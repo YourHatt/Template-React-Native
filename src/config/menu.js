@@ -82,7 +82,7 @@ export default menu = {
         {
             icon: 'wifi',
             label: 'Record Scrab',
-            link: 'Inventory',
+            link: 'RECORDSCRAB_SCREEN',
             view: '',
             permission: ''
         },

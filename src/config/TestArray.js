@@ -340,4 +340,55 @@ export default myArray = {
         },
 
     ],
+    array_RS: [
+        {
+            product: 'Record Scrab Test',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            location: 'gt',
+            qty: 'gt',
+        },
+        {
+            product: 'Record Scrab Test1',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            location: 'gt',
+            qty: 'gt',
+        },
+        {
+            product: 'Record Scrab Test2',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            location: 'gt',
+            qty: 'gt',
+        },
+        {
+            product: 'Record Scrab Test3',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            location: 'gt',
+            qty: 'gt',
+        },
+        {
+            product: 'Record Scrab Test4',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            location: 'gt',
+            qty: 'gt',
+        },
+        {
+            product: 'Record Scrab Test5',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            location: 'gt',
+            qty: 'gt',
+        },
+        {
+            product: 'Record Scrab Test6',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            location: 'gt',
+            qty: 'gt',
+        },
+    ],
 }

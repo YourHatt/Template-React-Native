@@ -23,7 +23,8 @@ import {
     MasterLocation,
     Expense,
     GoodReceive,
-    GoodTransfer
+    GoodTransfer,
+    RecordScrab
 } from '../views';
 
 const middleware = createReactNavigationReduxMiddleware('root', state => state.nav);
@@ -50,6 +51,7 @@ const RootNavigator = createStackNavigator({
     Expense: { screen: Expense },
     GoodReceive: { screen: GoodReceive },
     GoodTransfer: { screen: GoodTransfer },
+    RecordScrab: { screen: RecordScrab },
     
 });
 

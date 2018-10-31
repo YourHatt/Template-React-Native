@@ -19,3 +19,4 @@ export { default as location } from './location';
 export { default as expense } from './expense';
 export { default as goodReceive } from './goodReceive';
 export { default as goodTransfer } from './goodTransfer';
+export { default as recordScrab } from './recordScrab';
