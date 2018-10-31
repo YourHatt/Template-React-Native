@@ -252,33 +252,92 @@ export default myArray = {
     ],
     array_UOM: [
         {
-            id:'a1244444',
-            description:'Tester 1',
+            id: 'a1244444',
+            description: 'Tester 1',
         },
         {
-            id:'b1244444',
-            description:'Tester 2',
+            id: 'b1244444',
+            description: 'Tester 2',
         },
         {
-            id:'c1244444',
-            description:'Tester 3',
+            id: 'c1244444',
+            description: 'Tester 3',
         },
         {
-            id:'d1244444',
-            description:'Tester 4',
+            id: 'd1244444',
+            description: 'Tester 4',
         },
         {
-            id:'e1244444',
-            description:'Tester 5',
+            id: 'e1244444',
+            description: 'Tester 5',
         },
         {
-            id:'f1244444',
-            description:'Tester 6',
+            id: 'f1244444',
+            description: 'Tester 6',
         },
         {
-            id:'g1244444',
-            description:'Tester 7',
+            id: 'g1244444',
+            description: 'Tester 7',
         },
-       
+
+    ],
+    array_GT: [
+        {
+            product: 'Good transfer Test',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            fromLocation: 'gt',
+            toLocation: 'gt',
+            qty: 'gt',
+        },
+        {
+            product: 'Good transfer Test1',
+            lotNumber: 'gt1',
+            unitOfMeasure: 'gt',
+            fromLocation: 'gt',
+            toLocation: 'gt',
+            qty: 'gt',
+        },
+        {
+            product: 'Good transfer Test2',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            fromLocation: 'gt',
+            toLocation: 'gt',
+            qty: 'gt',
+        },
+        {
+            product: 'Good transfer Test3',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            fromLocation: 'gt',
+            toLocation: 'gt',
+            qty: 'gt',
+        },
+        {
+            product: 'Good transfer Test4',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            fromLocation: 'gt',
+            toLocation: 'gt',
+            qty: 'gt',
+        },
+        {
+            product: 'Good transfer Test5',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            fromLocation: 'gt',
+            toLocation: 'gt',
+            qty: 'gt',
+        },
+        {
+            product: 'Good transfer Test6',
+            lotNumber: 'gt',
+            unitOfMeasure: 'gt',
+            fromLocation: 'gt',
+            toLocation: 'gt',
+            qty: 'gt',
+        },
+
     ],
 }
