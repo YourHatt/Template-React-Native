@@ -8,8 +8,17 @@ import {
     StyleSheet,
     View,
     Text,
+    ImageBackground,
+    TouchableWithoutFeedback,
+    Keyboard
 } from 'react-native';
-import { Button } from 'native-base'
+import {
+    Button,
+    Content,
+    Item,
+    Input,
+    Icon
+} from 'native-base'
 import {
 
 } from '../../components';
@@ -19,32 +28,85 @@ class SignUp extends Component {
     static propTypes = {
         navigation: PropTypes.object.isRequired
     }
-
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22, marginLeft: '5%' }}>Sign Up</Text>,
+            headerStyle: {
+                backgroundColor: '#1E8DAB',
+            },
+        }
+    }
     render() {
         const { navigation, onClickSubmit } = this.props;
         return (
-            <View>
-                <Text>yyyyyy</Text>
-                <Button primary block onPress={() => onClickSubmit()}>
-                    <Text>OK</Text>
-                </Button>
-            </View>
+            <ImageBackground source={require('../../../assets/background/background_login.png')} style={{ flex: 1 }}>
+                <View style={styles.container}>
+                    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+                        <View style={{ flex: 0.9 }}>
+                            <Content>
+                                <Item rounded style={styles.input}>
+                                    <Icon active name='home' />
+                                    <Input placeholder='e-mail' />
+                                </Item>
+                            </Content>
+                            <Content>
+                                <Item rounded style={styles.input}>
+                                    <Icon active name='home' />
+                                    <Input placeholder='name' />
+                                </Item>
+                            </Content>
+                            <Content>
+                                <Item rounded style={styles.input}>
+                                    <Icon active name='home' />
+                                    <Input placeholder='password' />
+                                </Item>
+                            </Content>
+                            <Content>
+                                <Item rounded style={styles.input}>
+                                    <Icon active name='home' />
+                                    <Input placeholder='retype password' />
+                                </Item>
+                            </Content>
+                            <Content>
+                                <Item rounded style={styles.input}>
+                                    <Icon active name='home' />
+                                    <Input placeholder='tel' />
+                                </Item>
+                            </Content>
+                            <Content>
+                                <Item rounded style={styles.input}>
+                                    <Icon active name='home' />
+                                    <Input placeholder='address' />
+                                </Item>
+                            </Content>
+                        </View>
+                    </TouchableWithoutFeedback>
+                    <View style={{ flex: 0.1, alignItems: 'center', justifyContent: 'center' }}>
+                        <Button primary block onPress={() => onClickSubmit()} style={styles.button}>
+                            <Text>OK</Text>
+                        </Button>
+                    </View>
+
+                </View>
+
+            </ImageBackground>
         )
     }
 }
 
-SignUp.navigationOptions = () => ({
-    title: 'SignUp',
-    headerTintColor: 'black',
-    headerStyle: {
-        backgroundColor: 'white'
-    }
-});
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        paddingTop: '5%'
+    },
+    button: {
+        backgroundColor: '#1E8DAB'
+    },
+    input: {
+        backgroundColor: 'white',
+        width: 300,
+        alignSelf: 'center'
     }
 });
 
