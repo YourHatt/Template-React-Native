@@ -41,7 +41,7 @@ export default class FormMenu extends Component {
                 return <FormUnitOfMeasure itemData={itemData} navi={navigation} />
             case 'expenses':
                 return <FormExpense itemData={itemData} navi={navigation} />
-            case 'goodReceive':
+            case 'goodReceives':
                 return <FormGoodReceive itemData={itemData} navi={navigation} />
             default:
                 return <View>

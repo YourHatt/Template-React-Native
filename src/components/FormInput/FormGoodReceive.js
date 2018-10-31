@@ -50,8 +50,14 @@ class FormGoodReceive extends Component {
         const { itemData } = this.props;
         if (itemData) {
             this.setState({
-                id: itemData.id,
-                description: itemData.description
+                product: itemData.product,
+                location: itemData.location,
+                reference: itemData.reference,
+                unitOfMeasure: itemData.unitOfMeasure,
+                qty: itemData.qty,
+                unitCost: itemData.unitCost,
+                supplier: itemData.supplier,
+                lotNumber: itemData.lotNumber,
             })
         }
     }
@@ -75,9 +81,10 @@ class FormGoodReceive extends Component {
         return (
             <View>
                 <Content padder>
-                    <Card>
+                    <Text style={[styles.text, { marginVertical: 10 }]}> Good Receive </Text>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> Product </Text>
+                            <Text style={styles.text}> Product </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
@@ -85,49 +92,49 @@ class FormGoodReceive extends Component {
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> Location </Text>
+                            <Text style={styles.text}> Location </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
-                                <TextInput value={this.state.location} onChangeText={e => this.setState({ location: e })} style={styles.input} rounded underlineColorAndroid='rgba(0,0,0,0.0)' />
+                                <TextInput value={this.state.location} onChangeText={e => this.setState({ location: e })} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> Reference </Text>
+                            <Text style={styles.text}> Reference</Text>
                         </CardItem>
                         <CardItem>
                             <Body>
-                                <TextInput value={this.state.reference} onChangeText={e => this.setState({ reference: e })} style={styles.input} rounded underlineColorAndroid='rgba(0,0,0,0.0)' />
+                                <TextInput value={this.state.reference} onChangeText={e => this.setState({ reference: e })} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> Unit Of Measure </Text>
+                            <Text style={styles.text}> Unit Of Measure </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
-                                <TextInput value={this.state.unitOfMeasure} onChangeText={e => this.setState({ unitOfMeasure: e })} style={styles.input} rounded underlineColorAndroid='rgba(0,0,0,0.0)' />
+                                <TextInput value={this.state.unitOfMeasure} onChangeText={e => this.setState({ unitOfMeasure: e })} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> QTY </Text>
+                            <Text style={styles.text}> Qty </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
-                                <TextInput value={this.state.qty} onChangeText={e => this.setState({ qty: e })} style={styles.input} rounded underlineColorAndroid='rgba(0,0,0,0.0)' />
+                                <TextInput value={this.state.qty} onChangeText={e => this.setState({ qty: e })} style={styles.input} underlineColorAndroid='rgba(0,0,0,0.0)' />
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> Unit Cost </Text>
+                            <Text style={styles.text}> Unit Cost </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
@@ -135,9 +142,9 @@ class FormGoodReceive extends Component {
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> Supplier </Text>
+                            <Text style={styles.text}> Suplier </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
@@ -145,9 +152,9 @@ class FormGoodReceive extends Component {
                             </Body>
                         </CardItem>
                     </Card>
-                    <Card>
+                    <Card style={styles.cardForm}>
                         <CardItem>
-                            <Text> Lot Number </Text>
+                            <Text style={styles.text}> Lot Number </Text>
                         </CardItem>
                         <CardItem>
                             <Body>
@@ -155,7 +162,7 @@ class FormGoodReceive extends Component {
                             </Body>
                         </CardItem>
                     </Card>
-                    <Button onPress={() => { this.onInputChange() }}><Text> SUBMIT</Text></Button>
+                    <Button style={{ backgroundColor: '#24C1A2' }} block onPress={() => { this.onInputChange() }}><Text> {itemData ? 'Save' : 'Add'}</Text></Button>
                 </Content>
             </View>
         )
@@ -167,19 +174,24 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff'
     },
     text: {
+        // marginLeft: 20,
         flex: 1,
         fontSize: 20,
-        color: 'black'
+        color: '#1E8DAB'
     },
     input: {
         paddingLeft: 10,
-        width: '80%',
+        width: '100%',
         height: 50,
         borderRadius: 10,
         borderWidth: 1.5,
         borderColor: '#e8edf4',
         fontSize: 20,
         color: 'black'
+    },
+    cardForm: {
+        borderBottomWidth: 1,
+        borderColor: '#64D4BE'
     }
 });
 const mapStateToProps = state => ({

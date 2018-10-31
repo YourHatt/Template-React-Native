@@ -51,7 +51,7 @@ class FormInput extends Component {
             <Fragment>
                 <ScrollView style={styles.container}>
                     <FormMenu formType={formType} itemData={data} isEdit navigation={navigation} />
-                    {/* <Text>{formType}</Text> */}
+                    {/* <Text>{data.product}</Text> */}
                 </ScrollView>
             </Fragment>
         )

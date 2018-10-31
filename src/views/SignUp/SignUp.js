@@ -37,7 +37,7 @@ class SignUp extends Component {
         }
     }
     render() {
-        const { navigation, onClickSubmit } = this.props;
+        const { navigation, onClickSubmit, emailChange, passwordCahnge, nameChange, retypePasswordChange, telChange, addressChange, passwordChange, inputError, inputSuccess, isSame, password, retypePassword } = this.props;
         return (
             <ImageBackground source={require('../../../assets/background/background_login.png')} style={{ flex: 1 }}>
                 <View style={styles.container}>
@@ -46,37 +46,37 @@ class SignUp extends Component {
                             <Content>
                                 <Item rounded style={styles.input}>
                                     <Icon active name='home' />
-                                    <Input placeholder='e-mail' />
+                                    <Input placeholder='e-mail' onChangeText={e => emailChange(e)} />
                                 </Item>
                             </Content>
                             <Content>
                                 <Item rounded style={styles.input}>
                                     <Icon active name='home' />
-                                    <Input placeholder='name' />
+                                    <Input placeholder='name' onChangeText={e => nameChange(e)} />
+                                </Item>
+                            </Content>
+                            <Content>
+                                <Item rounded style={styles.input} error={!!!password && isSame} success={!!password && isSame}>
+                                    <Icon active name='home' />
+                                    <Input placeholder='password' secureTextEntry={true} onChangeText={e => passwordChange(e)} />
+                                </Item>
+                            </Content>
+                            <Content>
+                                <Item rounded style={styles.input} error={!!!retypePassword && isSame} success={!!retypePassword && isSame}>
+                                    <Icon active name='home' />
+                                    <Input placeholder='retype password' secureTextEntry={true} onChangeText={e => retypePasswordChange(e)} />
                                 </Item>
                             </Content>
                             <Content>
                                 <Item rounded style={styles.input}>
                                     <Icon active name='home' />
-                                    <Input placeholder='password' />
+                                    <Input placeholder='tel' onChangeText={e => telChange(e)} />
                                 </Item>
                             </Content>
                             <Content>
                                 <Item rounded style={styles.input}>
                                     <Icon active name='home' />
-                                    <Input placeholder='retype password' />
-                                </Item>
-                            </Content>
-                            <Content>
-                                <Item rounded style={styles.input}>
-                                    <Icon active name='home' />
-                                    <Input placeholder='tel' />
-                                </Item>
-                            </Content>
-                            <Content>
-                                <Item rounded style={styles.input}>
-                                    <Icon active name='home' />
-                                    <Input placeholder='address' />
+                                    <Input placeholder='address' onChangeText={e => addressChange(e)} />
                                 </Item>
                             </Content>
                         </View>
@@ -111,7 +111,11 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-
+    inputError: state.signUp.inputError,
+    inputSuccess: state.signUp.inputSuccess,
+    isSame: state.signUp.isSame,
+    password: state.signUp.password,
+    retypePassword: state.signUp.retypePassword,
 });
 
 const mapDispatchToProps = dispatch => {

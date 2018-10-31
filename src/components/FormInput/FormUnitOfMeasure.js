@@ -67,7 +67,7 @@ class FormUnitOfMeasure extends Component {
         return (
             <View>
                 <Content padder>
-                    <Text style={[styles.text, { marginVertical: 10 }]}> Product </Text>
+                    <Text style={[styles.text, { marginVertical: 10 }]}> Unit Of Measure </Text>
                     <Card style={styles.cardForm}>
                         <CardItem>
                             <Text style={styles.text}> Id </Text>
