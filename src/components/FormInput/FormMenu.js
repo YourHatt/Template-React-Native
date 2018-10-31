@@ -19,10 +19,10 @@ import {
 import {
     FormProduct,
     FormMember,
-    // FormLocation,
+    FormLocation,
     FormUnitOfMeasure,
     FormExpense,
-    FormGoodReceive
+    FormGoodReceive,
 } from '../index'
 
 export default class FormMenu extends Component {
@@ -35,8 +35,8 @@ export default class FormMenu extends Component {
                 return <FormProduct itemData={itemData} navi={navigation} />
             case 'members':
                 return <FormMember itemData={itemData} navi={navigation} />
-            // case 'locations':
-            //     return <FormLocation itemData={itemData} navi={navigation} />
+            case 'locations':
+                return <FormLocation itemData={itemData} navi={navigation} />
             case 'unitOfMeasures':
                 return <FormUnitOfMeasure itemData={itemData} navi={navigation} />
             case 'expenses':

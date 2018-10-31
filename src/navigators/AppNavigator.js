@@ -20,7 +20,7 @@ import {
     FormInput,
     Member,
     UnitOfMeasure,
-    Location,
+    MasterLocation,
     Expense,
     GoodReceive
 } from '../views';
@@ -45,7 +45,7 @@ const RootNavigator = createStackNavigator({
     FormInput: { screen: FormInput },
     Member: { screen: Member },
     UnitOfMeasure: { screen: UnitOfMeasure },
-    Location: { screen: Location },
+    MasterLocation: { screen: MasterLocation },
     Expense: { screen: Expense },
     GoodReceive: { screen: GoodReceive },
     

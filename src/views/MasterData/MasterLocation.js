@@ -36,7 +36,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
-class Location extends Component {
+class MasterLocation extends Component {
     state = {
         initialItem: [],
         searchInput: '',
@@ -118,4 +118,4 @@ const mapDispatchToProps = dispatch => {
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Location);
+export default connect(mapStateToProps, mapDispatchToProps)(MasterLocation);

@@ -96,7 +96,7 @@ const nav = (state = initialNavState, action) => {
             break;
         case Types.LOCATION_SCREEN:
             nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'Location' }),
+                NavigationActions.navigate({ routeName: 'MasterLocation' }),
                 state
             )
             break;

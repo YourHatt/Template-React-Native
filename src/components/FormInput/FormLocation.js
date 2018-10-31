@@ -13,7 +13,7 @@ import {
 } from 'native-base';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as unitOfMeasureAction from '../../redux/actions/unitOfMeasure';
+import * as  locationAction from '../../redux/actions/location';
 import {
     ScrollView,
     StyleSheet,
@@ -21,9 +21,8 @@ import {
     TextInput,
     View,
 } from 'react-native';
-import { PRODUCT_LOADING_STARTED } from '../../redux/actions/unitOfMeasure';
 
-class FormUnitOfMeasure extends Component {
+class FormLocation extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,7 +37,7 @@ class FormUnitOfMeasure extends Component {
     static navigationOptions = ({ navigation }) => {
         const { itemData } = this.props
         return {
-            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>{itemData ? 'Edit Unit Of Measure' : 'Create Unit Of Measure'}</Text>,
+            headerTitle: <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 22 }}>{itemData ? 'Edit Location' : 'Create Location'}</Text>,
             headerStyle: {
                 backgroundColor: '#1E8DAB',
             },
@@ -121,16 +120,16 @@ const styles = StyleSheet.create({
     }
 });
 const mapStateToProps = state => ({
-    isLoading: state.unitOfMeasure.isLoading,
+    isLoading: state.location.isLoading,
 
 });
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
-            ...unitOfMeasureAction
+            ...locationAction
         }, dispatch
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormUnitOfMeasure);
+export default connect(mapStateToProps, mapDispatchToProps)(FormLocation);
