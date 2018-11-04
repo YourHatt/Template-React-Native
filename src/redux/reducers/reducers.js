@@ -4,51 +4,20 @@ import {
     nav,
     home,
     login,
-    signUp,
-    inventory,
-    saleReceiving,
-    recordExpense,
-    weightManagement,
-    timeManagement,
-    sharing,
-    report,
-    plantation,
-    masterData,
     product,
-    formInput,
-    member,
-    unitOfMeasure,
-    location,
-    expense,
-    goodReceive,
-    goodTransfer,
-    recordScrab
+    showProduct,
+    cart,
+    checkout
 } from '../actions';
 
 const AppReducer = combineReducers({
     nav,
     home,
     login,
-    signUp,
-    inventory,
-    saleReceiving,
-    recordExpense,
-    weightManagement,
-    timeManagement,
-    sharing,
-    report,
-    plantation,
-    masterData,
     product,
-    formInput,
-    member,
-    unitOfMeasure,
-    location,
-    expense,
-    goodReceive,
-    goodTransfer,
-    recordScrab
-
+    showProduct,
+    cart,
+    checkout
 });
 
 export default AppReducer;

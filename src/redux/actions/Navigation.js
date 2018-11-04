@@ -3,7 +3,7 @@ import { NavigationActions } from 'react-navigation';
 import { RootNavigator } from '../../navigators/AppNavigator';
 import * as Types from '../types/Navigation';
 
-const firstAction = RootNavigator.router.getActionForPathAndParams('Login');
+const firstAction = RootNavigator.router.getActionForPathAndParams('Home');
 const tempNavState = RootNavigator.router.getStateForAction(firstAction);
 const initialNavState = RootNavigator.router.getStateForAction(tempNavState);
 
@@ -16,57 +16,9 @@ const nav = (state = initialNavState, action) => {
                 state
             );
             break;
-        case Types.INVENTORY_SCREEN:
+        case Types.LOGIN_SCREEN:
             nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'Inventory' }),
-                state
-            )
-            break;
-        case Types.SALERECEIVING_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'SaleReceiving' }),
-                state
-            )
-            break;
-        case Types.RECORD_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'RecordExpense' }),
-                state
-            )
-            break;
-        case Types.TIME_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'TimeManagement' }),
-                state
-            )
-            break;
-        case Types.WEIGHT_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'WeightManagement' }),
-                state
-            )
-            break;
-        case Types.SHARING_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'Sharing' }),
-                state
-            )
-            break;
-        case Types.REPORT_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'Report' }),
-                state
-            )
-            break;
-        case Types.PLAN_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'Plantation' }),
-                state
-            )
-            break;
-        case Types.MASTER_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'MasterData' }),
+                NavigationActions.navigate({ routeName: 'Login' }),
                 state
             )
             break;
@@ -76,51 +28,21 @@ const nav = (state = initialNavState, action) => {
                 state
             )
             break;
-        case Types.FORM_SCREEN:
+        case Types.SHOW_SCREEN:
             nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'FormInput' }),
+                NavigationActions.navigate({ routeName: 'ShowProduct' }),
                 state
             )
             break;
-        case Types.MEMBER_SCREEN:
+        case Types.CART_SCREEN:
             nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'Member' }),
+                NavigationActions.navigate({ routeName: 'CartScreen' }),
                 state
             )
             break;
-        case Types.UNITOFMEASURE_SCREEN:
+        case Types.CHECKOUT_SCREEN:
             nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'UnitOfMeasure' }),
-                state
-            )
-            break;
-        case Types.LOCATION_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'MasterLocation' }),
-                state
-            )
-            break;
-        case Types.EXPENSE_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'Expense' }),
-                state
-            )
-            break;
-        case Types.GOODRECEIVE_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'GoodReceive' }),
-                state
-            )
-            break;
-        case Types.GOODTRANSFER_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'GoodTransfer' }),
-                state
-            )
-            break;
-        case Types.RECORDSCRAB_SCREEN:
-            nextState = RootNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'RecordScrab' }),
+                NavigationActions.navigate({ routeName: 'CheckOutScreen' }),
                 state
             )
             break;

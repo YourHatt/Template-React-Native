@@ -13,13 +13,11 @@ import {
     Image,
     Keyboard,
     TouchableWithoutFeedback,
-    Dimensions,
-    ImageBackground
+    Dimensions
 } from 'react-native';
-import { Button, Icon } from 'native-base'
+import { Button, Icon, Content, Input, Item } from 'native-base'
 
 import {
-
 } from '../../components';
 
 const deviceWidth = Dimensions.get('window').width;
@@ -33,61 +31,46 @@ class Login extends Component {
 
     render() {
         const { navigation, emailChange, passwordChange, email, password, onAuthen, onClickSignUp } = this.props;
+        console.log('xxx')
         return (
-            <ImageBackground source={require('../../../assets/background/background_login.png')} style={{ flex: 1 }}>
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-                    <View style={styles.container}>
-                        <View style={{
-                            width: '100%',
-                            height: '100%',
-                            flexDirection: 'column',
-                        }} behavior="padding" enabled>
-                            <View style={{ flex: 0.2 }}></View>
-                            <View style={{ flex: 0.1, justifyContent: 'center', alignItems: 'center' }} >
-                                <Icon style={{ fontSize: deviceWidth / 6, color: '#24C1A2' }} type='Feather' name='box'></Icon>
-                            </View>
-                            <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center' }}>
-                                <View style={styles.SectionStyle}>
-                                    <Icon style={styles.inputIcon} type='EvilIcons' name='user'></Icon>
-                                    <TextInput
-                                        value={email}
-                                        onChangeText={e => { emailChange(e) }}
-                                        placeholder={'Username'}
-                                        style={styles.input}
-                                        placeholderTextColor='#64D4BE'
-                                    /></View>
-                                <View style={styles.SectionStyle}>
-                                    <Icon style={styles.inputIcon} type='EvilIcons' name='lock'></Icon>
-                                    <TextInput
-                                        value={password}
-                                        onChangeText={e => { passwordChange(e) }}
-                                        placeholder={'Password'}
-                                        secureTextEntry={true}
-                                        style={styles.input}
-                                        placeholderTextColor='#64D4BE'
-                                    /></View>
-                            </View>
-                            <View style={{ flex: 0.4 }}>
-                                <Button
-                                    rounded
-                                    info
-                                    style={styles.button}
-                                    onPress={() => onAuthen()}
-                                >
-                                    <Text style={{ fontSize: 20, color: 'white', textAlign: 'center', }}>Login</Text>
-                                </Button>
-                                <Button transparent
-                                    style={styles.buttonSignUp}
-                                    onPress={() => onClickSignUp()}
-                                >
-                                    <Text style={{ fontSize: 15, textAlign: 'right', color: '#64D4BE' }}>Sign Up ?</Text>
-                                </Button>
-                            </View>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+                <View style={styles.container}>
+                    <View style={{
+                        width: '100%',
+                        height: '100%',
+                        backgroundColor: 'white',
+                        flexDirection: 'column',
+                    }} behavior="padding" enabled>
+                        <View style={{ flex: 0.2, }}></View>
+                        <View style={{ flex: 0.4, justifyContent: 'center', alignItems: 'center', }} >
+                        </View>
+                        <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center', paddingTop: 10, paddingBottom: 10 }}>
+                            <Content style={styles.input}>
+                                <Item rounded style={{ borderColor: '#ff5766' }}>
+                                    <Input maxLength={3} onChangeText={e => { emailChange(e) }} placeholder='Username' />
+                                    <Icon active type='EvilIcons' name='user' style={{ color: '#ff5766' }} />
+                                </Item>
+                            </Content>
+                            <Content style={styles.input}>
+                                <Item rounded style={{ borderColor: '#ff5766' }}>
+                                    <Input maxLength={3} onChangeText={e => { passwordChange(e) }} placeholder='Password' />
+                                    <Icon active type='EvilIcons' name='lock' style={{ color: '#ff5766' }} />
+                                </Item>
+                            </Content>
+                        </View>
+                        <View style={{ flex: 0.2, }}>
+                            <Button
+                                rounded
+                                info
+                                style={styles.button}
+                                onPress={() => onAuthen()}
+                            >
+                                <Text style={{ fontSize: 20, color: 'white', textAlign: 'center' }}>Login</Text>
+                            </Button>
                         </View>
                     </View>
-                </TouchableWithoutFeedback>
-            </ImageBackground>
-
+                </View>
+            </TouchableWithoutFeedback>
         )
     }
 }
@@ -101,7 +84,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        // backgroundColor: '#ecf0f1',
+        backgroundColor: '#ecf0f1',
     },
     textHeader: {
         flex: 1,
@@ -112,11 +95,9 @@ const styles = StyleSheet.create({
         fontSize: 15,
         margin: 10,
         marginTop: 10,
-        width: '60%',
+        width: '75%',
         height: 44,
         padding: 10,
-        borderBottomWidth: 1,
-        borderColor: '#64D4BE',
         // borderWidth: 1,
         // borderColor: 'white',
         marginBottom: 10,
@@ -125,21 +106,13 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: 'center',
         alignSelf: 'center',
-        backgroundColor: '#1E8DAB',
-        width: 144,
-        marginHorizontal: '5%'
-    },
-    buttonSignUp: {
-        justifyContent: "center",
-        alignItems: 'center',
-        alignSelf: 'center',
-        width: 144,
+        width: '75%',
+        height: 44,
         marginHorizontal: '5%',
+        backgroundColor: '#ff5766'
     },
     inputIcon: {
-        padding: 10,
-        fontSize: 35,
-        color: '#64D4BE'
+        padding: 10
     },
     SectionStyle: {
         marginTop: 20,
@@ -147,7 +120,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor: 'rgba(255,255,255,0.2)',
+        backgroundColor: '#fff',
     },
 });
 

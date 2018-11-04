@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import React, { Component } from 'react';
 import thunkMiddleware from 'redux-thunk';
 
+import { MenuProvider, MenuOption } from 'react-native-popup-menu';
+
 import { middleware } from './src/navigators/AppNavigator';
 import AppReducer from './src/redux/reducers/reducers';
 import ReduxNavigation from './src/navigators/ReduxNavigation';
@@ -13,6 +15,10 @@ const store = createStore(AppReducer, enhancer);
 
 export default class App extends Component {
 	render() {
-		return <Provider store={store}><ReduxNavigation /></Provider>
+		return <Provider store={store}>
+			{/* <MenuProvider> */}
+			<ReduxNavigation />
+			{/* </MenuProvider> */}
+		</Provider>
 	}
 }

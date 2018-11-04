@@ -31,32 +31,43 @@ import React, { Component, Fragment } from 'react';
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
-export default class ShowList extends Component {
+export default class CartList extends Component {
 
     state = {
         menuKeyState: '',
         data: {}
     };
+
     renderListItems = () => {
-        const { menu, backpress, navigation, list, listTitle } = this.props
-        if (list) return list.map((e, i) => {
-            return <TouchableOpacity style={{ width: '90%', alignItems: 'center', justifyContent: 'center', alignSelf: 'center', borderRadius: 30 }} onPress={() => navigation.dispatch({ type: 'SHOW_SCREEN', data: e, formType: listTitle })} key={i}>
+        const { menu, backpress, navigation, list, listTitle, amount } = this.props
+        if (list.length) return list.map((e, i) => {
+            return <View style={{ width: '90%', alignItems: 'center', justifyContent: 'center', alignSelf: 'center' }} key={i}>
                 <Card style={{ marginVertical: 10, width: '100%', borderBottomWidth: 1, borderColor: '#ff5766', }}>
                     <CardItem >
                         <Left style={{ width: '30%', height: '75%', alignItems: 'center', justifyContent: 'center' }}>
                             <Thumbnail square large source={e.image} style={styles.imageList} resizeMode='contain' />
                         </Left>
-                        <Body >
+                        <Body>
                             <Text style={{ fontWeight: 'bold', fontSize: 20, marginBottom: 20 }}>{e.title}</Text>
                             <Text note style={{ fontSize: 14, marginLeft: 10 }}>{e.status}</Text>
                             <Text note style={{ fontSize: 14, marginLeft: 10 }}>{e.status}</Text>
                             <Text note style={{ fontSize: 14, marginLeft: 10 }}>{e.status}</Text>
-                            <Text note style={{ fontSize: 14, marginLeft: 10, color: '#ff5766', marginTop: 10 }}>${e.unitPrice}</Text>
+                            <Text note style={{ fontSize: 14, marginLeft: 10, color: '#ff5766', marginTop: 10, fontWeight: 'bold' }}>${e.unitPrice} x {amount[i]}</Text>
                         </Body>
+                        <Right style={{ width: '100%', height: '100%' }}>
+                            <TouchableOpacity>
+                                <Icon active type='EvilIcons' name='close-o' style={{ fontSize: 40, color: '#f18316' }} />
+                            </TouchableOpacity>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#ff5766', textAlign: 'center', marginTop: '30%' }}> $ {e.unitPrice * amount[i]}</Text>
+                        </Right>
                     </CardItem>
                 </Card>
-            </TouchableOpacity >
-        })
+            </View>
+        }
+        )
+        else return <View style={styles.container}>
+            <Text style={styles.text}>There are no item in cart </Text>
+        </View>
     }
     render() {
         const { menuKeyState, data } = this.state
@@ -65,7 +76,7 @@ export default class ShowList extends Component {
                 <View style={{ flex: 0.2, }}>
                 </View>
                 <View style={{ flex: 0.6 }}>
-                    <Content style={{ flex: 1, marginTop: '15%', marginBottom: '5%' }}>
+                    <Content style={{ flex: 1, marginTop: '5%', marginBottom: '5%' }}>
                         {this.renderListItems()}
                     </Content>
                 </View>
@@ -87,7 +98,7 @@ const styles = StyleSheet.create({
     text: {
         flex: 1,
         fontSize: 20,
-        color: '#636263',
+        color: '#ff5766',
         fontWeight: 'bold'
     },
     imageList: {

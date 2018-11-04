@@ -6,53 +6,22 @@ import { reduxifyNavigator, createReactNavigationReduxMiddleware } from 'react-n
 import {
     Home,
     Login,
-    SignUp,
-    Inventory,
-    SaleReceiving,
-    RecordExpense,
-    TimeManagement,
-    WeightManagement,
-    Sharing,
-    Report,
-    Plantation,
-    MasterData,
     Product,
-    FormInput,
-    Member,
-    UnitOfMeasure,
-    MasterLocation,
-    Expense,
-    GoodReceive,
-    GoodTransfer,
-    RecordScrab
+    ShowProduct,
+    CartScreen,
+    CheckOutScreen
 } from '../views';
 
 const middleware = createReactNavigationReduxMiddleware('root', state => state.nav);
 
 const RootNavigator = createStackNavigator({
     // Home View
-    Login: { screen: Login },
     Home: { screen: Home },
-    SignUp: { screen: SignUp },
-    Inventory: { screen: Inventory },
-    SaleReceiving: { screen: SaleReceiving },
-    RecordExpense: { screen: RecordExpense },
-    TimeManagement: { screen: TimeManagement },
-    WeightManagement: { screen: WeightManagement },
-    Sharing: { screen: Sharing },
-    Report: { screen: Report },
-    Plantation: { screen: Plantation },
-    MasterData: { screen: MasterData },
+    Login: { screen: Login },
     Product: { screen: Product },
-    FormInput: { screen: FormInput },
-    Member: { screen: Member },
-    UnitOfMeasure: { screen: UnitOfMeasure },
-    MasterLocation: { screen: MasterLocation },
-    Expense: { screen: Expense },
-    GoodReceive: { screen: GoodReceive },
-    GoodTransfer: { screen: GoodTransfer },
-    RecordScrab: { screen: RecordScrab },
-    
+    ShowProduct: { screen: ShowProduct },
+    CartScreen: { screen: CartScreen },
+    CheckOutScreen: { screen: CheckOutScreen },
 });
 
 const AppWithNavigationState = reduxifyNavigator(RootNavigator, 'root');
