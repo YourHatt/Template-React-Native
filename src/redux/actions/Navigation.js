@@ -16,6 +16,36 @@ const nav = (state = initialNavState, action) => {
                 state
             );
             break;
+        case Types.LOGIN_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'Login' }),
+                state
+            )
+            break;
+        case Types.PRODUCT_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'Product' }),
+                state
+            )
+            break;
+        case Types.SHOW_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'ShowProduct' }),
+                state
+            )
+            break;
+        case Types.CART_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'CartScreen' }),
+                state
+            )
+            break;
+        case Types.CHECKOUT_SCREEN:
+            nextState = RootNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'CheckOutScreen' }),
+                state
+            )
+            break;
         default:
             nextState = RootNavigator.router.getStateForAction(action, state);
             break;

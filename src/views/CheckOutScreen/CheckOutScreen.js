@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 
 import {
-    Button,
     Icon,
     Text,
     Card,
@@ -25,18 +24,19 @@ import {
     HeaderMenu,
     CircleView
 } from '../../components';
+// import  { } from 'react-native-share';
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
-class Home extends Component {
+class CheckoutScreen extends Component {
     static propTypes = {
         navigation: PropTypes.object.isRequired
     }
 
     static navigationOptions = ({ navigation }) => {
         return {
-            headerTitle: <Text style={{ color: '#ff5766', fontWeight: 'bold', fontSize: 22, marginLeft: '5%' }}>Home</Text>,
+            headerTitle: <Text style={{ color: '#ff5766', fontWeight: 'bold', fontSize: 22, marginLeft: '5%' }}>Sumary</Text>,
             headerStyle: {
                 backgroundColor: 'white',
             },
@@ -46,33 +46,9 @@ class Home extends Component {
     render() {
         const { navigation } = this.props;
         return (
-            <ImageBackground source={require('../../../assets//background/bg_pinkwhite.png')} style={{ flex: 1 }}>
+            <ImageBackground source={require('../../../assets//background/background_1.jpg')} style={{ flex: 1 }}>
                 <View style={styles.container}>
-                    <TouchableOpacity style={styles.buttonBox} onPress={() => navigation.dispatch({ type: 'PRODUCT_SCREEN' })}>
-                        <Card style={styles.cardBox}>
-                            <CardItem style={{ borderRadius: 50 }}>
-                                <Body>
-                                    <View style={styles.button}>
-                                        <Text style={styles.text}>Action one</Text>
-                                        <CircleView color='#ff5766' />
-                                    </View>
-                                </Body>
-                            </CardItem>
-                        </Card>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonBox} onPress={() => navigation.dispatch({ type: 'PRODUCT_SCREEN' })}>
-                        <Card style={styles.cardBox}>
-                            <CardItem style={{ borderRadius: 50 }}>
-                                <Body>
-                                    <View style={styles.button}>
-                                        <Text style={styles.text}>Action two</Text>
-                                        <CircleView color='#f18316' />
-                                    </View>
-                                </Body>
-                            </CardItem>
-                        </Card>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonBox} onPress={() => navigation.dispatch({ type: 'PRODUCT_SCREEN' })}>
+                    <TouchableOpacity style={styles.buttonBox} onPress={() => console.log('do something')} >
                         <Card style={styles.cardBox}>
                             <CardItem style={{ borderRadius: 50 }}>
                                 <Body>
@@ -85,7 +61,7 @@ class Home extends Component {
                         </Card>
                     </TouchableOpacity>
                 </View>
-            </ ImageBackground>
+            </ ImageBackground >
 
         )
     }
@@ -109,7 +85,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     cardBox: {
-        borderRadius: 50
+        // borderRadius: 50
     },
     buttonBox: {
         // marginVertical: 10,
@@ -134,4 +110,4 @@ const mapDispatchToProps = dispatch => {
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutScreen);
