@@ -1,5 +1,5 @@
 import {
-    ToastAndroid
+    Alert
 } from 'react-native';
 
 class Error {
@@ -33,7 +33,13 @@ class Error {
     }
 
     notify() {
-        ToastAndroid.show(this.errorMessage, ToastAndroid.SHORT);
+        Alert.alert(
+            'Error Message',
+            this.errorMessage,
+            [
+                {text: 'OK', onPress: () => console.log('OK Pressed')}
+            ]
+        )
     }
 }
 

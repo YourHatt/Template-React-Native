@@ -18,6 +18,7 @@ import {
 import { Button, Icon, Content, Input, Item } from 'native-base'
 
 import {
+    Loading
 } from '../../components';
 
 const deviceWidth = Dimensions.get('window').width;
@@ -33,7 +34,8 @@ class Login extends Component {
         super(props);
         this.state = {
             username:'',
-            password:''
+            password:'',
+            loading: false
         }
     }
 
@@ -45,7 +47,11 @@ class Login extends Component {
             password
         }
 
-        onAuthen(data);
+        onAuthen(data, this.onHandleLoading);
+    }
+
+    onHandleLoading = (val) => {
+        this.setState({ loading: val });
     }
 
     handleChangeText = (variable) => (value) => {
@@ -55,51 +61,44 @@ class Login extends Component {
     render() {
         return (
             <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-                <View style={styles.container}>
-                    <View style={{
-                        width: '100%',
-                        height: '100%',
-                        backgroundColor: 'white',
-                        flexDirection: 'column',
-                    }} behavior="padding" enabled>
-                        <View style={{ flex: 0.2, }}></View>
-                        <View style={{ flex: 0.4, justifyContent: 'center', alignItems: 'center', }} >
-                        </View>
-                        <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center', paddingTop: 10, paddingBottom: 10 }}>
-                            <Content style={styles.input}>
-                                <Item rounded style={{ borderColor: '#ff5766' }}>
-                                    <Input 
-                                        maxLength={25} 
-                                        onChangeText={this.handleChangeText('username')}
-                                        value={this.state.username}
-                                        placeholder='Username' />
-                                    <Icon active type='EvilIcons' name='user' style={{ color: '#ff5766' }} />
-                                </Item>
-                            </Content>
-                            <Content style={styles.input}>
-                                <Item rounded style={{ borderColor: '#ff5766' }}>
-                                    <Input 
-                                        maxLength={25}
-                                        secureTextEntry={true}
-                                        onChangeText={this.handleChangeText('password')} 
-                                        value={this.state.password} 
-                                        placeholder='Password'  />
-                                    <Icon active type='EvilIcons' name='lock' style={{ color: '#ff5766' }} />
-                                </Item>
-                            </Content>
-                        </View>
-                        <View style={{ flex: 0.2, }}>
-                            <Button
-                                rounded
-                                info
-                                style={styles.button}
-                                onPress={this.onAuthentication}
-                            >
-                                <Text style={{ fontSize: 20, color: 'white', textAlign: 'center' }}>Login</Text>
-                            </Button>
-                        </View>
+                <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
+                    <View style={{ width: deviceWidth, height: deviceHeight * 0.6, }}>
                     </View>
-                </View>
+                    <View style={{ width: deviceWidth, height: deviceHeight * 0.4, alignItems: 'center' }}>
+                        <Content style={styles.input}>
+                            <Item rounded style={{ borderColor: '#ff5766', marginVertical: 5 }}>
+                                <Input
+                                    disabled={this.state.loading}
+                                    maxLength={25}
+                                    onChangeText={this.handleChangeText('username')}
+                                    value={this.state.username}
+                                    placeholder='Username' />
+                                <Icon active type='EvilIcons' name='user' style={{ color: '#ff5766' }} />
+                            </Item>
+                            <Item rounded style={{ borderColor: '#ff5766', marginVertical: 5 }} >
+                                <Input
+                                    disabled={this.state.loading}
+                                    maxLength={25}
+                                    secureTextEntry={true}
+                                    onChangeText={this.handleChangeText('password')}
+                                    value={this.state.password}
+                                    placeholder='Password' />
+                                <Icon active type='EvilIcons' name='lock' style={{ color: '#ff5766' }} />
+                            </Item>
+                            { this.state.loading ? 
+                                <Loading /> : 
+                                <Button
+                                    rounded
+                                    info
+                                    style={styles.button}
+                                    onPress={this.onAuthentication}
+                                >
+                                    <Text style={{ fontSize: 20, color: 'white', textAlign: 'center' }}>Login</Text>
+                                </Button> 
+                            } 
+                        </Content>
+                    </View>
+                </KeyboardAvoidingView>
             </TouchableWithoutFeedback>
         )
     }
@@ -115,6 +114,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#ecf0f1',
+        backgroundColor: 'white'
     },
     textHeader: {
         flex: 1,
@@ -139,7 +139,8 @@ const styles = StyleSheet.create({
         width: '75%',
         height: 44,
         marginHorizontal: '5%',
-        backgroundColor: '#ff5766'
+        backgroundColor: '#ff5766',
+        marginVertical: 10
     },
     inputIcon: {
         padding: 10
