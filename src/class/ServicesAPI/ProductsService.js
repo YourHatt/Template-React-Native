@@ -1,7 +1,7 @@
 import BaseService from './BaseService';
 import ProductsDTO from '../DataHelper/DTO/ProductsDTO';
 import ProductsOTS from '../DataHelper/ObjectToStore/ProductsOTS';
-import ProductsValidator from '../Validator/ProductsValidator';
+
 
 class ProductsService extends BaseService {
     constructor(domain) {
@@ -10,9 +10,6 @@ class ProductsService extends BaseService {
         this.ots = ProductsOTS;
     }
     
-    getProductsValidator() {
-        return new ProductsValidator();
-    }
 
     //@overwrite
     setConfig() {
