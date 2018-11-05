@@ -18,6 +18,7 @@ import {
 import { Button, Icon, Content, Input, Item } from 'native-base'
 
 import {
+    Loading
 } from '../../components';
 
 const deviceWidth = Dimensions.get('window').width;
@@ -33,7 +34,8 @@ class Login extends Component {
         super(props);
         this.state = {
             username:'',
-            password:''
+            password:'',
+            loading: false
         }
     }
 
@@ -45,7 +47,11 @@ class Login extends Component {
             password
         }
 
-        onAuthen(data);
+        onAuthen(data, this.onHandleLoading);
+    }
+
+    onHandleLoading = (val) => {
+        this.setState({ loading: val });
     }
 
     handleChangeText = (variable) => (value) => {
@@ -69,6 +75,7 @@ class Login extends Component {
                             <Content style={styles.input}>
                                 <Item rounded style={{ borderColor: '#ff5766' }}>
                                     <Input 
+                                        disabled={this.state.loading}
                                         maxLength={25} 
                                         onChangeText={this.handleChangeText('username')}
                                         value={this.state.username}
@@ -78,7 +85,8 @@ class Login extends Component {
                             </Content>
                             <Content style={styles.input}>
                                 <Item rounded style={{ borderColor: '#ff5766' }}>
-                                    <Input 
+                                    <Input
+                                        disabled={this.state.loading}
                                         maxLength={25}
                                         secureTextEntry={true}
                                         onChangeText={this.handleChangeText('password')} 
@@ -89,14 +97,17 @@ class Login extends Component {
                             </Content>
                         </View>
                         <View style={{ flex: 0.2, }}>
-                            <Button
-                                rounded
-                                info
-                                style={styles.button}
-                                onPress={this.onAuthentication}
-                            >
-                                <Text style={{ fontSize: 20, color: 'white', textAlign: 'center' }}>Login</Text>
-                            </Button>
+                            { this.state.loading ? 
+                                <Loading /> : 
+                                <Button
+                                    rounded
+                                    info
+                                    style={styles.button}
+                                    onPress={this.onAuthentication}
+                                >
+                                    <Text style={{ fontSize: 20, color: 'white', textAlign: 'center' }}>Login</Text>
+                                </Button> 
+                            }     
                         </View>
                     </View>
                 </View>

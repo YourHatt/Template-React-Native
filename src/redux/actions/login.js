@@ -190,9 +190,10 @@ export const onSignOut = () => {
         ToastAndroid.show('ลงชื่อออกจากระบบสำเร็จ', ToastAndroid.SHORT);
     }
 }
-export function onAuthen(data) {
+export function onAuthen(data, onHandleLoading) {
     return async (dispatch, getState) => {
         try {
+            onHandleLoading(true);
             await model.storage.removeStorage();
             const response = await model.users.authentication(data);
             await model.storage.saveToken(response.token);
@@ -205,6 +206,7 @@ export function onAuthen(data) {
         } catch (error) {
             console.log(error);
             notification.error(error);
+            onHandleLoading(false);
         }
         
     }
