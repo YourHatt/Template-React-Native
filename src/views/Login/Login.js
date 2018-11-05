@@ -29,9 +29,30 @@ class Login extends Component {
         navigation: PropTypes.object.isRequired
     }
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            username:'',
+            password:''
+        }
+    }
+
+    onAuthentication = () => {
+        const { username, password } = this.state;
+        const { onAuthen } = this.props;
+        const data = {
+            username,
+            password
+        }
+
+        onAuthen(data);
+    }
+
+    handleChangeText = (variable) => (value) => {
+        this.setState({ [variable]: value })
+    }
+
     render() {
-        const { navigation, emailChange, passwordChange, email, password, onAuthen, onClickSignUp } = this.props;
-        console.log('xxx')
         return (
             <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
                 <View style={styles.container}>
@@ -47,13 +68,22 @@ class Login extends Component {
                         <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'center', paddingTop: 10, paddingBottom: 10 }}>
                             <Content style={styles.input}>
                                 <Item rounded style={{ borderColor: '#ff5766' }}>
-                                    <Input maxLength={3} onChangeText={e => { emailChange(e) }} placeholder='Username' />
+                                    <Input 
+                                        maxLength={25} 
+                                        onChangeText={this.handleChangeText('username')}
+                                        value={this.state.username}
+                                        placeholder='Username' />
                                     <Icon active type='EvilIcons' name='user' style={{ color: '#ff5766' }} />
                                 </Item>
                             </Content>
                             <Content style={styles.input}>
                                 <Item rounded style={{ borderColor: '#ff5766' }}>
-                                    <Input maxLength={3} onChangeText={e => { passwordChange(e) }} placeholder='Password' />
+                                    <Input 
+                                        maxLength={25}
+                                        secureTextEntry={true}
+                                        onChangeText={this.handleChangeText('password')} 
+                                        value={this.state.password} 
+                                        placeholder='Password'  />
                                     <Icon active type='EvilIcons' name='lock' style={{ color: '#ff5766' }} />
                                 </Item>
                             </Content>
@@ -63,7 +93,7 @@ class Login extends Component {
                                 rounded
                                 info
                                 style={styles.button}
-                                onPress={() => onAuthen()}
+                                onPress={this.onAuthentication}
                             >
                                 <Text style={{ fontSize: 20, color: 'white', textAlign: 'center' }}>Login</Text>
                             </Button>

@@ -18,6 +18,9 @@ const initialState = {
     user: {}
 };
 
+import model from '../../class/ServicesAPI';
+import notification from '../../Notification';
+
 const login = (state = initialState, action) => {
     switch (action.type) {
         case Types.LOGIN_LOADING_STARTED:
@@ -187,10 +190,23 @@ export const onSignOut = () => {
         ToastAndroid.show('ลงชื่อออกจากระบบสำเร็จ', ToastAndroid.SHORT);
     }
 }
-export function onAuthen() {
+export function onAuthen(data) {
     return async (dispatch, getState) => {
-        const { login: { email, password } } = getState();
-        await dispatch(replace('Home'))
+        try {
+            await model.storage.removeStorage();
+            const response = await model.users.authentication(data);
+            await model.storage.saveToken(response.token);
+            await model.storage.saveCurrentUser(response.user);
+            notification.success('ลงชื่อเข้าสู่จากระบบสำเร็จ');
+            if(await model.storage.isToken()) {
+                await dispatch(replace('Home'));
+            }
+            
+        } catch (error) {
+            console.log(error);
+            notification.error(error);
+        }
+        
     }
 }
 
