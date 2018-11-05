@@ -1,5 +1,6 @@
 import {
-    ToastAndroid
+    ToastAndroid,
+    Platform
 } from 'react-native';
 
 class Success {
@@ -8,7 +9,7 @@ class Success {
     }
 
     notify() {
-        ToastAndroid.show(this.message, ToastAndroid.SHORT);
+        if (Platform.OS === 'android') ToastAndroid.show(this.message, ToastAndroid.SHORT);  
     }
 }
 
