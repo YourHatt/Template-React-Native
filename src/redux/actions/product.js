@@ -1,6 +1,8 @@
 import * as Types from '../types/Product';
 // import Model from '../../model/Model'
-import myArray from '../../config/TestArray'
+import myArray from '../../config/TestArray';
+import model from '../../class/ServicesAPI';
+import notification from '../../Notification';
 
 const initialState = {
     summary: {},
@@ -50,9 +52,13 @@ const product = (state = initialState, action) => {
 }
 export function getList() {
     return async (dispatch, getState) => {
-        await dispatch({ type: Types.PRODUCT_GET_STARTED })
-        const result = myArray.array_A
-        return await dispatch({ type: Types.PRODUCT_GET_SUCCESS, value: result })
+        try {
+            await dispatch({ type: Types.PRODUCT_GET_STARTED });
+            const result = await model.products.get();
+            return await dispatch({ type: Types.PRODUCT_GET_SUCCESS, value: result })     
+        } catch (error) {
+            notification.error(error);
+        }
     }
 }
 

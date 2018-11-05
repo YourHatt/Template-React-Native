@@ -39,7 +39,7 @@ export default class CartList extends Component {
     };
 
     renderListItems = () => {
-        const { menu, backpress, navigation, list, listTitle, amount } = this.props
+        const { menu, backpress, navigation, list, listTitle, amount, onRemoveCart } = this.props
         if (list.length) return list.map((e, i) => {
             return <View style={{ width: '90%', alignItems: 'center', justifyContent: 'center', alignSelf: 'center' }} key={i}>
                 <Card style={{ marginVertical: 10, width: '100%', borderBottomWidth: 1, borderColor: '#ff5766', }}>
@@ -55,7 +55,7 @@ export default class CartList extends Component {
                             <Text note style={{ fontSize: 14, marginLeft: 10, color: '#ff5766', marginTop: 10, fontWeight: 'bold' }}>${e.unitPrice} x {amount[i]}</Text>
                         </Body>
                         <Right style={{ width: '100%', height: '100%' }}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => onRemoveCart(e, amount[i])}>
                                 <Icon active type='EvilIcons' name='close-o' style={{ fontSize: 40, color: '#f18316' }} />
                             </TouchableOpacity>
                             <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#ff5766', textAlign: 'center', marginTop: '30%' }}> $ {e.unitPrice * amount[i]}</Text>

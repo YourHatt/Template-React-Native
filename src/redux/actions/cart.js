@@ -2,13 +2,16 @@ import * as Types from '../types/Cart';
 import {
     ToastAndroid,
 } from 'react-native';
+
+
+
 const initialState = {
     amount: [],
     carts: [],
     productValue: '',
     totalAmount: 0,
     totalPrice: 0,
-    isLoading: false
+    isLoading: false,
 };
 //CART
 const cart = (state = initialState, action) => {
@@ -34,6 +37,7 @@ const cart = (state = initialState, action) => {
                 isLoading: true
             }
         case Types.CART_ADD_SUCCESS:
+            console.log(state);
             return {
                 ...state,
                 carts: [...state.carts, action.data],
@@ -50,7 +54,8 @@ const cart = (state = initialState, action) => {
         case Types.CART_DELETE_SUCCESS:
             return {
                 ...state,
-                carts: action.data,
+                totalAmount: state.totalAmount - parseInt(action.amount),
+                totalPrice: state.totalPrice - action.price,
                 isLoading: false
             }
         default:
@@ -65,10 +70,25 @@ export function onClickCart() {
 export function onAddCart(data, amount) {
     return async (dispatch, getState) => {
         const total = cart.totalPrice
-        console.log(total);
         await dispatch({ type: Types.CART_ADD_STARTED });
         if (data) {
             await dispatch({ type: Types.CART_ADD_SUCCESS, data: data, amount: amount, price: parseInt(data.unitPrice) * amount });
+            ToastAndroid.show('เพิ่มรายการลงในตะกร้าแล้ว', ToastAndroid.SHORT);
+        }
+        else {
+            ToastAndroid.show('บางอย่างผิดพลาด', ToastAndroid.LONG);
+            return await dispatch({ type: Types.CART_ADD_FAILURE })
+        }
+    }
+}
+
+export function onRemoveCart(data, amount) {
+    return async (dispatch, getState) => {
+        const total = cart.totalPrice
+        console.log(total);
+        await dispatch({ type: Types.CART_ADD_STARTED });
+        if (data) {
+            await dispatch({ type: Types.CART_DELETE_SUCCESS, data: data, amount: amount, price: parseInt(data.unitPrice) * amount });
             ToastAndroid.show('เพิ่มรายการลงในตะกร้าแล้ว', ToastAndroid.SHORT);
         }
         else {

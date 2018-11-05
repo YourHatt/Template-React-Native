@@ -27,6 +27,10 @@ import {
     CartIcon,
 } from '../../components';
 
+import model from '../../class/ServicesAPI';
+
+const ProductDTO = model.products.dto;
+
 const NAVBAR_HEIGHT = 64;
 const STATUS_BAR_HEIGHT = Platform.select({ ios: 0, android: 0 });
 const AnimatedListView = Animated.createAnimatedComponent(ShowList);
@@ -83,12 +87,14 @@ class Product extends Component {
 
     searchList = () => {
         const { searchInput } = this.state;
-        const { products } = this.props;
-        if (searchInput && products) return products.filter(e => e.title.match(new RegExp(searchInput, 'gi')));
+        let { products } = this.props;
+        products = ProductDTO.filterDataActive(products);
+        products = ProductDTO.getArrayToDispaly(products);
+        if (searchInput && products) return ProductDTO.searchFilter(searchInput, products);
         else return products;
     }
     render() {
-        const { backpress, replace, isLoading, navigation, products } = this.props;
+        let { backpress, replace, isLoading, navigation, products } = this.props;
         const { clampedScroll } = this.state;
         const navbarTranslate = clampedScroll.interpolate({
             inputRange: [0, NAVBAR_HEIGHT - STATUS_BAR_HEIGHT],

@@ -36,7 +36,9 @@ const deviceHeight = Dimensions.get('window').height;
 class ShowProduct extends Component {
     constructor(props) {
         super(props);
-        this.state = { productValue: 1 }
+        this.state = { 
+            productValue: 1
+         }
     }
     static propTypes = {
         navigation: PropTypes.object.isRequired
@@ -56,6 +58,12 @@ class ShowProduct extends Component {
             ),
         }
     }
+
+    onAddCart = () => {
+        let { pickedItem, onAddCart } = this.props;
+        onAddCart(pickedItem, productValue);
+    }
+
     render() {
         const { navigation, pickedItem, value, onAddCart } = this.props;
         return (
@@ -76,7 +84,7 @@ class ShowProduct extends Component {
                                 <Icon active type='EvilIcons' name='chevron-down' style={{ color: '#ff5766' }} />
                             </Item>
                         </Content>
-                        <Button style={{ marginLeft: deviceWidth * 0.075, backgroundColor: '#ff5766' }} onPress={() => onAddCart(pickedItem, this.state.productValue)}>
+                        <Button style={{ marginLeft: deviceWidth * 0.075, backgroundColor: '#ff5766' }} onPress={this.onAddCart}>
                             <Text>add to cart</Text>
                             <Icon active type='EvilIcons' name='cart' />
                         </Button>

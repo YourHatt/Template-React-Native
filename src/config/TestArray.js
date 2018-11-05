@@ -7,7 +7,7 @@ export default myArray = {
             unitOfMeasure: '100',
             unitPrice: '100',
             vatPrice: '7',
-            image: require('../../assets/iphone1.jpg')
+            image: { uri: 'https://king-drag.herokuapp.com/assets/images-demo/image-icons/coming-soon.png'}
         },
         {
             title: 'iphone2',

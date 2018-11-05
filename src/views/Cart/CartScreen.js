@@ -56,12 +56,12 @@ class CartScreen extends Component {
         else return <View />
     }
     render() {
-        const { navigation, backpress, carts, amount, totalAmount, totalPrice } = this.props;
+        const { navigation, backpress, carts, amount, totalAmount, totalPrice, onRemoveCart } = this.props;
         return (
             <Fragment>
                 {this.renderCheckoutHeader(totalPrice)}
                 <ScrollView style={styles.container}>
-                    <CartList backpress={backpress} navigation={navigation} list={carts} amount={amount} />
+                    <CartList backpress={backpress} navigation={navigation} list={carts} onRemoveCart={onRemoveCart} amount={amount} />
                 </ScrollView>
             </Fragment >
         )

@@ -28,6 +28,8 @@ import {
 
 import React, { Component, Fragment } from 'react';
 
+
+
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 

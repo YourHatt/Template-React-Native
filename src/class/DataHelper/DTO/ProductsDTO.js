@@ -1,5 +1,6 @@
 
 import BaseDTO from './BaseDTO';
+import { ServerURL } from '../../ServicesAPI/Config';
 
 class ProductsDTO extends BaseDTO {
     constructor() {
@@ -46,22 +47,37 @@ class ProductsDTO extends BaseDTO {
         const { group, model, size} = product;
         return `${group.title} ${model.title} ${size.title}`;
     }
+
+    handleDataDisplay(product) {
+        return {
+            title: product.size ? this.createTitleBySize(product) : this.createTitleByColor(product),
+            status: 'x123',
+            unitCost: '100',
+            unitOfMeasure: '100',
+            unitPrice: product.price,
+            vatPrice: '7',
+            image: { uri: `${ServerURL}/${product.imagePath}`}
+        }
+    }
+
+    getArrayToDispaly(products) {
+        if(!products) return [];
+        return products.map((product, index) => {
+            return this.handleDataDisplay(product);
+        })
+    }
     
 
     searchFilter(searchWord, products) {
         
         return products.filter((product) => {
             searchWord = this.setBlackSlash(searchWord);
-            let createdAt = this.showTimesDisplay(product.createdAt);
-            let updatedAt = this.showTimesDisplay(product.updatedAt);
             const objectTitle = product.size ? this.createTitleBySize(product) : this.createTitleByColor(product);
             const objectCode = product.size ? this.createCodeBySize(product) : this.createCodeByColor(product);
             return (
                 new RegExp(searchWord.toLowerCase()).test(product.id)
                 ||new RegExp(searchWord.toLowerCase()).test(objectTitle.toLowerCase())
-                ||new RegExp(searchWord.toLowerCase()).test(objectCode.toLowerCase())
-                || new RegExp(searchWord.toLowerCase()).test(createdAt.toLowerCase())
-                || new RegExp(searchWord.toLowerCase()).test(updatedAt.toLowerCase())
+                //||new RegExp(searchWord.toLowerCase()).test(objectCode.toLowerCase())
             );
         })
     }
